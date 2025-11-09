@@ -3,13 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wandering Gorilla Theme Preview</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Wandering Gorilla - Adventure Travel & Outdoor Exploration Blog</title>
+    <meta name="description" content="Explore the great outdoors with Wandering Gorilla. Discover hiking trails, backpacking routes, camping gear reviews, and wilderness photography from across North America.">
+    <meta name="keywords" content="hiking, backpacking, camping, outdoor adventure, trail guides, gear reviews, wilderness photography, national parks">
+    <meta name="author" content="Wandering Gorilla">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wanderinggorilla.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wanderinggorilla.com">
+    <meta property="og:title" content="Wandering Gorilla - Adventure Travel & Outdoor Exploration">
+    <meta property="og:description" content="Explore the great outdoors with expert hiking guides, gear reviews, and wilderness photography.">
+    <meta property="og:image" content="https://wanderinggorilla.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://wanderinggorilla.com">
+    <meta property="twitter:title" content="Wandering Gorilla - Adventure Travel & Outdoor Exploration">
+    <meta property="twitter:description" content="Explore the great outdoors with expert hiking guides, gear reviews, and wilderness photography.">
+    <meta property="twitter:image" content="https://wanderinggorilla.com/images/twitter-image.jpg">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Wandering Gorilla",
+      "url": "https://wanderinggorilla.com",
+      "description": "Adventure travel blog featuring hiking guides, gear reviews, and wilderness photography",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Wandering Gorilla",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wanderinggorilla.com/logo.png"
+        }
+      }
+    }
+    </script>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Theme Styles -->
-    <link rel="stylesheet" href="style.css?v=20251109">
+    <link rel="stylesheet" href="style.css?v=20251109002">
 </head>
 
 <body>
@@ -64,9 +106,12 @@
             <div class="grid grid-3 mt-lg">
 
                 <!-- Post Card 1 -->
-                <article class="post-card">
+                <article class="post-card" itemscope itemtype="https://schema.org/Article">
+                    <meta itemprop="datePublished" content="2025-11-01">
+                    <meta itemprop="author" content="Wandering Gorilla">
+
                     <div class="post-card-image">
-                        <a href="#">
+                        <a href="#" itemprop="url">
                             <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #8B4513; height: 400px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui); font-size: 1.5rem;">
                                 ROUTE PHOTO
                             </div>
@@ -77,15 +122,15 @@
                         <a href="#" class="category-badge">Backpacking</a>
 
                         <h3 class="post-card-title">
-                            <a href="#">Exploring Yellowstone's Backcountry Trails</a>
+                            <a href="#" itemprop="headline">Exploring Yellowstone's Backcountry Trails</a>
                         </h3>
 
-                        <div class="post-card-excerpt">
+                        <div class="post-card-excerpt" itemprop="description">
                             Five days deep in America's first national park, documenting wildlife, geothermal features, and pristine wilderness areas rarely seen by visitors.
                         </div>
 
                         <div class="post-card-meta">
-                            <span>November 1, 2025</span>
+                            <time datetime="2025-11-01" itemprop="datePublished">November 1, 2025</time>
                             <a href="#" class="vintage-label">Read Report →</a>
                         </div>
                     </div>
