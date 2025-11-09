@@ -1,0 +1,542 @@
+<!--
+COMPONENT: Gear Review Cards - Vintage Catalog Style
+INSTALLATION: Add as Embed element in Webflow
+
+FEATURES:
+- Vintage catalog aesthetic
+- 5-star rating system with badges
+- "Field Tested" stamps
+- Price tags with retro styling
+- Affiliate link tracking
+- Quick comparison tool
+- Hover effects
+
+WEBFLOW SETUP:
+1. Add Embed element where you want gear reviews
+2. Paste this code
+3. Customize products and affiliate links
+4. Update images and pricing
+-->
+
+<div class="gear-catalog">
+  <h2 class="catalog-title">Field Tested Equipment</h2>
+  <p class="catalog-subtitle">Gear that's survived the trail</p>
+
+  <div class="gear-grid">
+
+    <!-- Gear Card 1 -->
+    <article class="gear-card">
+      <div class="field-tested-stamp">FIELD TESTED</div>
+
+      <div class="gear-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1622260614927-9d7cef10c4c8?w=800&h=600&fit=crop" alt="Backpack" class="gear-image">
+        <div class="gear-category">PACKS</div>
+      </div>
+
+      <div class="gear-content">
+        <div class="star-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="rating-text">5.0</span>
+        </div>
+
+        <h3 class="gear-title">Osprey Atmos 65 AG</h3>
+
+        <div class="gear-brand">OSPREY</div>
+
+        <div class="price-tag">
+          <span class="price-label">MSRP</span>
+          <span class="price-amount">$299.95</span>
+        </div>
+
+        <p class="gear-excerpt">
+          500+ miles tested across three national parks. Exceptional comfort, organization, and durability for multi-day expeditions.
+        </p>
+
+        <div class="gear-specs">
+          <div class="spec-item">
+            <span class="spec-label">Weight:</span>
+            <span class="spec-value">4.5 lbs</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacity:</span>
+            <span class="spec-value">65L</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Miles:</span>
+            <span class="spec-value">500+</span>
+          </div>
+        </div>
+
+        <div class="gear-actions">
+          <a href="#review-1" class="btn-gear btn-review">Full Review</a>
+          <a href="https://example.com/affiliate" class="btn-gear btn-buy" target="_blank" rel="nofollow">
+            Buy Now
+            <span class="affiliate-note">*</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Gear Card 2 -->
+    <article class="gear-card">
+      <div class="field-tested-stamp">FIELD TESTED</div>
+
+      <div class="gear-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&h=600&fit=crop" alt="Tent" class="gear-image">
+        <div class="gear-category">SHELTER</div>
+      </div>
+
+      <div class="gear-content">
+        <div class="star-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star">☆</span>
+          <span class="rating-text">4.0</span>
+        </div>
+
+        <h3 class="gear-title">MSR Hubba Hubba NX</h3>
+
+        <div class="gear-brand">MSR</div>
+
+        <div class="price-tag">
+          <span class="price-label">MSRP</span>
+          <span class="price-amount">$449.95</span>
+        </div>
+
+        <p class="gear-excerpt">
+          Lightweight and weather-resistant. Survived high winds and heavy rain during our Cascades expedition.
+        </p>
+
+        <div class="gear-specs">
+          <div class="spec-item">
+            <span class="spec-label">Weight:</span>
+            <span class="spec-value">3.5 lbs</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacity:</span>
+            <span class="spec-value">2 Person</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Miles:</span>
+            <span class="spec-value">300+</span>
+          </div>
+        </div>
+
+        <div class="gear-actions">
+          <a href="#review-2" class="btn-gear btn-review">Full Review</a>
+          <a href="https://example.com/affiliate" class="btn-gear btn-buy" target="_blank" rel="nofollow">
+            Buy Now
+            <span class="affiliate-note">*</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Gear Card 3 -->
+    <article class="gear-card">
+      <div class="field-tested-stamp champion">CHAMPION</div>
+
+      <div class="gear-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1622260614927-9d7cef10c4c8?w=800&h=600&fit=crop" alt="Water Filter" class="gear-image">
+        <div class="gear-category">WATER</div>
+      </div>
+
+      <div class="gear-content">
+        <div class="star-rating">
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="rating-text">5.0</span>
+        </div>
+
+        <h3 class="gear-title">Sawyer Squeeze Filter</h3>
+
+        <div class="gear-brand">SAWYER</div>
+
+        <div class="price-tag">
+          <span class="price-label">MSRP</span>
+          <span class="price-amount">$39.95</span>
+        </div>
+
+        <p class="gear-excerpt">
+          Simple, reliable, lightweight. Processed over 1000 liters with zero failures. A trail essential.
+        </p>
+
+        <div class="gear-specs">
+          <div class="spec-item">
+            <span class="spec-label">Weight:</span>
+            <span class="spec-value">3 oz</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Capacity:</span>
+            <span class="spec-value">1M+ gal</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Liters:</span>
+            <span class="spec-value">1000+</span>
+          </div>
+        </div>
+
+        <div class="gear-actions">
+          <a href="#review-3" class="btn-gear btn-review">Full Review</a>
+          <a href="https://example.com/affiliate" class="btn-gear btn-buy" target="_blank" rel="nofollow">
+            Buy Now
+            <span class="affiliate-note">*</span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="affiliate-disclosure">
+    * Affiliate links support this site at no cost to you. We only recommend gear we've personally tested.
+  </div>
+</div>
+
+<style>
+.gear-catalog {
+  padding: 72px 24px;
+  background: #3A342E;
+}
+
+.catalog-title {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.catalog-subtitle {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #D4935A;
+  margin-bottom: 48px;
+}
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto 32px;
+}
+
+.gear-card {
+  position: relative;
+  background: #4A433C;
+  border: 4px solid #A67B5B;
+  padding: 24px;
+  box-shadow:
+    6px 6px 0 rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(212, 147, 90, 0.15);
+  transition: all 0.4s ease;
+}
+
+.gear-card:hover {
+  transform: translateY(-8px) rotate(0.5deg);
+  box-shadow:
+    10px 10px 0 rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(212, 147, 90, 0.3);
+  border-color: #D4935A;
+}
+
+.field-tested-stamp {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: linear-gradient(135deg, #6B5A4A 0%, #3A342E 100%);
+  color: #E8E3D6;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  border: 3px solid #A67B5B;
+  transform: rotate(-3deg);
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(212, 147, 90, 0.2);
+  z-index: 10;
+}
+
+.field-tested-stamp.champion {
+  background: linear-gradient(135deg, #D4935A 0%, #A67B5B 100%);
+  border-color: #E8E3D6;
+  animation: stamp-glow 2s ease-in-out infinite;
+}
+
+@keyframes stamp-glow {
+  0%, 100% {
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.5),
+      0 0 15px rgba(212, 147, 90, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.5),
+      0 0 25px rgba(212, 147, 90, 0.7);
+  }
+}
+
+.gear-image-wrapper {
+  position: relative;
+  margin: -24px -24px 24px -24px;
+  overflow: hidden;
+}
+
+.gear-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: 0;
+  border-bottom: 4px solid #A67B5B;
+  filter: saturate(1.25) contrast(1.1) sepia(0.08);
+  transition: transform 0.5s ease;
+}
+
+.gear-card:hover .gear-image {
+  transform: scale(1.05);
+}
+
+.gear-category {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(58, 52, 46, 0.95);
+  color: #D4935A;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 6px 12px;
+  border: 2px solid #A67B5B;
+}
+
+.star-rating {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star {
+  color: #8B7A6B;
+  font-size: 1.4rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.star.filled {
+  color: #D4935A;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.3),
+    0 0 10px rgba(212, 147, 90, 0.4);
+}
+
+.rating-text {
+  margin-left: 8px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #D4935A;
+}
+
+.gear-title {
+  font-size: 1.5rem;
+  color: #E8E3D6;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.gear-brand {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8B7A6B;
+  margin-bottom: 16px;
+}
+
+.price-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #5D6B4F 0%, #3A342E 100%);
+  padding: 8px 16px;
+  border: 3px solid #A67B5B;
+  margin-bottom: 20px;
+  box-shadow:
+    0 3px 6px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(212, 147, 90, 0.1);
+}
+
+.price-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #8B7A6B;
+  margin-right: 8px;
+}
+
+.price-amount {
+  font-family: "Impact", sans-serif;
+  font-size: 1.5rem;
+  color: #D4935A;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.gear-excerpt {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #E8E3D6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.gear-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(58, 52, 46, 0.5);
+  border: 2px solid #6B5A4A;
+}
+
+.spec-item {
+  text-align: center;
+}
+
+.spec-label {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #8B7A6B;
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  display: block;
+  font-family: "Impact", sans-serif;
+  font-size: 1.1rem;
+  color: #D4935A;
+}
+
+.gear-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-gear {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  border: 3px solid;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn-review {
+  background: linear-gradient(180deg, #6B5A4A 0%, #3A342E 100%);
+  border-color: #8B7A6B;
+  color: #E8E3D6;
+}
+
+.btn-review:hover {
+  background: linear-gradient(180deg, #8B7A6B 0%, #6B5A4A 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.btn-buy {
+  background: linear-gradient(180deg, #A67B5B 0%, #6B5A4A 100%);
+  border-color: #D4935A;
+  color: #E8E3D6;
+}
+
+.btn-buy:hover {
+  background: linear-gradient(180deg, #D4935A 0%, #A67B5B 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.4),
+    0 0 15px rgba(212, 147, 90, 0.3);
+}
+
+.affiliate-note {
+  font-size: 0.8rem;
+  vertical-align: super;
+}
+
+.affiliate-disclosure {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(74, 67, 60, 0.5);
+  border: 2px solid #6B5A4A;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #8B7A6B;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .gear-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .gear-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-specs {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+// Affiliate link tracking
+(function() {
+  const affiliateLinks = document.querySelectorAll('.btn-buy');
+
+  affiliateLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Track the click (integrate with your analytics)
+      const productName = this.closest('.gear-card').querySelector('.gear-title').textContent;
+
+      // Example: Google Analytics tracking
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'affiliate_click', {
+          'product_name': productName,
+          'link_url': this.href
+        });
+      }
+
+      console.log('Affiliate link clicked:', productName);
+    });
+  });
+})();
+</script>

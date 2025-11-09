@@ -1,0 +1,522 @@
+<!--
+COMPONENT: Email Signup - Vintage Postcard Design
+INSTALLATION: Add as Embed element in Webflow
+
+FEATURES:
+- Vintage postcard aesthetic
+- Email validation
+- Mailchimp/ConvertKit integration
+- Thank you message animation
+- "Trail Updates" branding
+- GDPR compliant checkbox
+
+WEBFLOW SETUP:
+1. Add Embed element in footer or sidebar
+2. Replace MAILCHIMP_ACTION_URL with your form action
+3. Customize messaging
+4. Style to match your brand
+-->
+
+<div class="trail-updates-signup">
+  <div class="postcard">
+    <div class="postcard-front">
+      <!-- Postcard Stamp -->
+      <div class="postcard-stamp">
+        <div class="stamp-inner">
+          <div class="stamp-icon">🦍</div>
+          <div class="stamp-text">TRAIL<br>UPDATE</div>
+        </div>
+      </div>
+
+      <!-- Address Lines (Vintage Effect) -->
+      <div class="postcard-lines"></div>
+
+      <!-- Content -->
+      <div class="postcard-content">
+        <h3 class="postcard-title">Join the Trail</h3>
+        <p class="postcard-subtitle">Weekly field reports • Gear reviews • Route guides</p>
+
+        <form id="signup-form" class="signup-form" action="MAILCHIMP_ACTION_URL" method="post" target="_blank">
+          <div class="form-group">
+            <label for="signup-email" class="visually-hidden">Email Address</label>
+            <input
+              type="email"
+              id="signup-email"
+              name="EMAIL"
+              placeholder="your.email@example.com"
+              required
+              class="signup-input"
+              aria-label="Email address"
+            >
+          </div>
+
+          <!-- Honeypot for spam protection -->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_honeypot" tabindex="-1" value="">
+          </div>
+
+          <div class="form-group consent-group">
+            <label class="consent-label">
+              <input type="checkbox" name="consent" required class="consent-checkbox">
+              <span class="consent-text">I agree to receive trail updates</span>
+            </label>
+          </div>
+
+          <button type="submit" class="signup-button">
+            <span class="button-text">Subscribe</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </form>
+
+        <div class="signup-promise">
+          No spam. Unsubscribe anytime. Free forever.
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank You Message (Hidden initially) -->
+    <div class="thank-you-message" id="thank-you-message">
+      <div class="thank-you-icon">✓</div>
+      <h3 class="thank-you-title">Welcome to the Trail!</h3>
+      <p class="thank-you-text">Check your email to confirm your subscription.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.trail-updates-signup {
+  padding: 48px 24px;
+  background: #3A342E;
+}
+
+.postcard {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  perspective: 1000px;
+}
+
+.postcard-front {
+  background: #E8DCC8; /* Vintage parchment */
+  background-image:
+    /* Paper texture */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 4px
+    );
+  border: 8px solid #f5f5dc;
+  padding: 40px;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.6s ease;
+}
+
+.postcard:hover .postcard-front {
+  transform: rotateY(2deg) rotateX(-2deg);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Vintage Stamp */
+.postcard-stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #D4935A 0%, #A67B5B 100%);
+  border: 3px solid #6B5A4A;
+  padding: 8px;
+  transform: rotate(12deg);
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.stamp-inner {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #3A342E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.stamp-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.stamp-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  color: #3A342E;
+}
+
+/* Address Lines (Vintage Postcard Effect) */
+.postcard-lines {
+  position: absolute;
+  right: 40px;
+  top: 120px;
+  width: 200px;
+  height: 100px;
+  border-left: 2px solid rgba(58, 52, 46, 0.2);
+  opacity: 0.3;
+}
+
+.postcard-lines::before,
+.postcard-lines::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 0;
+  height: 1px;
+  background: rgba(58, 52, 46, 0.3);
+}
+
+.postcard-lines::before {
+  top: 20px;
+}
+
+.postcard-lines::after {
+  top: 40px;
+}
+
+/* Content */
+.postcard-content {
+  position: relative;
+  z-index: 2;
+}
+
+.postcard-title {
+  font-family: "Impact", sans-serif;
+  font-size: 2.5rem;
+  color: #3A342E;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0 rgba(212, 147, 90, 0.2);
+}
+
+.postcard-subtitle {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  color: #6B5A4A;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.signup-form {
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  background: #fff;
+  color: #3A342E;
+  border: 3px solid #A67B5B;
+  border-radius: 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.signup-input:focus {
+  outline: none;
+  border-color: #D4935A;
+  box-shadow:
+    inset 0 2px 4px rgba(0,0,0,0.1),
+    0 0 12px rgba(212, 147, 90, 0.3);
+}
+
+.signup-input::placeholder {
+  color: #8B7A6B;
+  opacity: 0.7;
+}
+
+.consent-group {
+  margin-bottom: 24px;
+}
+
+.consent-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: #6B5A4A;
+}
+
+.consent-checkbox {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 16px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: linear-gradient(180deg, #A67B5B 0%, #6B5A4A 100%);
+  color: #E8E3D6;
+  border: 4px solid #D4935A;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.signup-button:hover {
+  background: linear-gradient(180deg, #D4935A 0%, #A67B5B 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 12px rgba(0,0,0,0.4),
+    0 0 20px rgba(212, 147, 90, 0.3);
+}
+
+.signup-button:hover::before {
+  left: 100%;
+}
+
+.button-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.signup-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+.signup-promise {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: #8B7A6B;
+  text-align: center;
+  font-style: italic;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Thank You Message */
+.thank-you-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #E8DCC8;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: all 0.6s ease;
+}
+
+.thank-you-message.show {
+  display: flex;
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.thank-you-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #5D6B4F 0%, #3A342E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #E8DCC8;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  animation: check-pop 0.6s ease-out;
+}
+
+@keyframes check-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.thank-you-title {
+  font-family: "Impact", sans-serif;
+  font-size: 2rem;
+  color: #3A342E;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.thank-you-text {
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  color: #6B5A4A;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .postcard-front {
+    padding: 24px;
+  }
+
+  .postcard-stamp {
+    width: 60px;
+    height: 60px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .stamp-icon {
+    font-size: 1.4rem;
+  }
+
+  .stamp-text {
+    font-size: 0.5rem;
+  }
+
+  .postcard-title {
+    font-size: 2rem;
+  }
+
+  .postcard-lines {
+    display: none;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const form = document.getElementById('signup-form');
+  const thankYouMessage = document.getElementById('thank-you-message');
+  const postcardFront = document.querySelector('.postcard-front');
+
+  // Handle form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('signup-email').value;
+    const consent = form.querySelector('[name="consent"]').checked;
+
+    if (!email || !consent) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    // Submit to email service (customize for your provider)
+    submitToEmailService(email);
+
+    // Show thank you message
+    showThankYou();
+  });
+
+  function submitToEmailService(email) {
+    // Example: Mailchimp integration
+    // Replace with your actual form submission logic
+
+    // For Mailchimp, you can use AJAX to submit
+    // Or let the form submit naturally by removing e.preventDefault()
+
+    console.log('Email submitted:', email);
+
+    // Example: Send to your backend
+    /*
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: email })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        showThankYou();
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Something went wrong. Please try again.');
+    });
+    */
+  }
+
+  function showThankYou() {
+    postcardFront.style.opacity = '0';
+    setTimeout(() => {
+      postcardFront.style.display = 'none';
+      thankYouMessage.classList.add('show');
+    }, 300);
+  }
+
+  // Reset form after thank you (optional)
+  setTimeout(() => {
+    if (thankYouMessage.classList.contains('show')) {
+      thankYouMessage.classList.remove('show');
+      postcardFront.style.display = 'block';
+      setTimeout(() => {
+        postcardFront.style.opacity = '1';
+      }, 50);
+      form.reset();
+    }
+  }, 8000); // Reset after 8 seconds
+})();
+</script>
