@@ -1,13 +1,13 @@
 /*
 Theme Name: Wandering Gorilla
 Theme URI: https://wanderinggorilla.com
-Description: A vintage Documentary Americana theme inspired by 1940s-60s Kodachrome photography and National Park Service design. Perfect for travel documentation blogs with authentic retro aesthetics.
-Version: 1.0.0
+Description: Authentic vintage Americana road trip theme inspired by weathered 1940s-60s highway signage, desert general stores, and Route 66. Features genuinely aged and worn aesthetic elements.
+Version: 1.1.0
 Author: Wandering Gorilla
 Author URI: https://wanderinggorilla.com
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, travel, vintage, photography, responsive, custom-post-types
+Tags: blog, travel, vintage, americana, route-66, road-trip, weathered, responsive
 Text Domain: wandering-gorilla
 */
 
@@ -34,22 +34,26 @@ Text Domain: wandering-gorilla
 1.0 CSS Variables
 --------------------------------------------------------------*/
 :root {
-  /* Color Palette */
-  --color-primary: #8B4513; /* saddle brown */
-  --color-accent: #DC143C; /* cherry red */
-  --color-background: #F5F5DC; /* kodachrome cream */
-  --color-support: #2F4F2F; /* forest green */
-  --color-text: #3C3C3C; /* faded ink */
-  --color-photo-overlay: rgba(139, 69, 19, 0.15);
+  /* Weathered Americana Color Palette */
+  --color-primary: #8B7355; /* weathered wood brown */
+  --color-accent: #A85442; /* rust red - aged metal signs */
+  --color-secondary: #5B6B73; /* dusty blue - desert sky */
+  --color-background: #F0EDDC; /* sun-bleached cream */
+  --color-support: #6B7059; /* sage green - oxidized metal */
+  --color-text: #3D342A; /* charcoal - weathered paint */
+  --color-photo-overlay: rgba(139, 115, 85, 0.15);
   --color-white: #FFFFFF;
-  --color-border: #D4C5B0;
-  --color-shadow: rgba(60, 60, 60, 0.15);
+  --color-border: #B8A892;
+  --color-shadow: rgba(61, 52, 42, 0.2);
+  --color-rust: #A85442;
+  --color-wood: #8B7355;
+  --color-patina: rgba(107, 112, 89, 0.3);
 
-  /* Typography */
-  --font-headline: "Rockwell", "Courier New", serif;
-  --font-subhead: "Oswald", "Arial Narrow", sans-serif;
-  --font-body: "Crimson Text", Georgia, serif;
-  --font-ui: "Oswald", "Arial Narrow", sans-serif;
+  /* Typography - Highway Sign & Typewriter Aesthetic */
+  --font-headline: "Impact", "Arial Black", "Oswald", sans-serif; /* Highway sign condensed */
+  --font-subhead: "Bebas Neue", "Impact", "Arial Narrow", sans-serif; /* Road marker */
+  --font-body: "Courier New", "American Typewriter", monospace; /* Typewriter */
+  --font-ui: "Oswald", "Arial Narrow", sans-serif; /* Route markers */
 
   /* Spacing - 24px base unit */
   --space-xs: 6px;
@@ -84,17 +88,26 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--color-text);
   background-color: var(--color-background);
   background-image:
+    /* Weathered paper texture */
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 2px,
-      rgba(139, 69, 19, 0.02) 2px,
-      rgba(139, 69, 19, 0.02) 4px
+      transparent 1px,
+      rgba(139, 115, 85, 0.015) 1px,
+      rgba(139, 115, 85, 0.015) 2px
+    ),
+    /* Wood grain effect */
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 115, 85, 0.03) 0px,
+      transparent 1px,
+      transparent 4px,
+      rgba(139, 115, 85, 0.03) 5px
     );
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -117,37 +130,50 @@ a:hover {
 }
 
 /*--------------------------------------------------------------
-3.0 Typography
+3.0 Typography - Highway Sign & Weathered Aesthetic
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headline);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 900;
+  line-height: 0.9;
   margin-bottom: var(--space-md);
   color: var(--color-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: var(--space-lg);
+  letter-spacing: -0.03em;
+  /* Weathered metal sign effect */
+  border: 4px solid var(--color-rust);
+  background: linear-gradient(180deg, var(--color-white) 0%, #E8E5D5 100%);
+  padding: var(--space-lg) var(--space-md);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid var(--color-rust);
+  padding-bottom: var(--space-sm);
 }
 
 h3 {
   font-size: 2rem;
   font-family: var(--font-subhead);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  color: var(--color-rust);
 }
 
 h4 {
   font-size: 1.5rem;
   font-family: var(--font-subhead);
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 h5 {
@@ -259,50 +285,61 @@ blockquote::before {
 }
 
 /*--------------------------------------------------------------
-5.0 Header & Navigation
+5.0 Header & Navigation - Weathered Metal Sign Aesthetic
 --------------------------------------------------------------*/
 .site-header {
   position: sticky;
   top: 0;
-  height: var(--header-height);
-  background: var(--color-background);
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid var(--color-primary);
+  height: auto;
+  min-height: var(--header-height);
+  /* Rusted metal background */
+  background: linear-gradient(180deg, #A85442 0%, #8B7355 50%, #6B7059 100%);
+  border-top: 4px solid #D4A574;
+  border-bottom: 6px solid var(--color-rust);
   z-index: 1000;
-  box-shadow: 0 4px 12px var(--color-shadow);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  min-height: var(--header-height);
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: var(--space-md);
 }
 
 .site-logo {
   font-family: var(--font-headline);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  text-shadow:
+    2px 2px 0 rgba(0,0,0,0.3),
+    0 0 10px rgba(255,255,255,0.1);
 }
 
 .site-logo::before {
-  content: '▲';
-  font-size: 2rem;
-  color: var(--color-accent);
-  display: inline-block;
-  transform: rotate(0deg);
-  transition: var(--transition-base);
+  content: 'RT';
+  font-size: 1.5rem;
+  background: var(--color-white);
+  color: var(--color-rust);
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 2px solid var(--color-rust);
+  font-weight: 900;
 }
 
-.site-logo:hover::before {
-  transform: rotate(180deg);
+.site-logo:hover {
+  color: var(--color-background);
 }
 
 .main-navigation {
@@ -327,44 +364,37 @@ blockquote::before {
 
 .main-navigation a {
   font-family: var(--font-ui);
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text);
-  padding: var(--space-xs) var(--space-md);
-  border: 2px solid transparent;
-  border-radius: 4px;
+  letter-spacing: 0.08em;
+  /* Highway shield styling */
+  background: var(--color-white);
+  color: var(--color-rust);
+  padding: 8px 16px;
+  border: 3px solid var(--color-rust);
+  border-radius: 3px;
   transition: var(--transition-base);
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   display: block;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 .main-navigation a::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid var(--color-accent);
-  opacity: 0;
-  transition: var(--transition-base);
+  display: none;
 }
 
 .main-navigation a:hover,
 .main-navigation a.current-menu-item {
-  background: var(--color-primary);
+  background: var(--color-rust);
   color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-.main-navigation a:hover::before,
-.main-navigation a.current-menu-item::before {
-  opacity: 1;
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 /* Mobile Menu Toggle */
@@ -515,87 +545,91 @@ blockquote::before {
 }
 
 /*--------------------------------------------------------------
-7.0 Buttons & CTAs
+7.0 Buttons & CTAs - Vintage Gas Station & Road Sign Styling
 --------------------------------------------------------------*/
 .btn {
   display: inline-block;
   font-family: var(--font-ui);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: var(--space-md) var(--space-lg);
-  border: 3px solid var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 6px;
+  letter-spacing: 0.1em;
+  padding: 14px 32px;
+  /* Vintage metal sign */
+  border: 4px solid var(--color-rust);
+  background: linear-gradient(180deg, var(--color-white) 0%, #E8E5D5 100%);
+  color: var(--color-rust);
+  border-radius: 4px;
   cursor: pointer;
   transition: var(--transition-base);
   text-align: center;
   position: relative;
-  overflow: hidden;
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.2),
+    inset 0 2px 0 rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
 }
 
 .btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-  left: 100%;
+  display: none;
 }
 
 .btn:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+  background: linear-gradient(180deg, #A85442 0%, #8B7355 100%);
+  border-color: var(--color-wood);
   color: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--color-shadow);
+  transform: translateY(-3px);
+  box-shadow:
+    0 6px 12px rgba(0,0,0,0.3),
+    inset 0 2px 0 rgba(255,255,255,0.2);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .btn-secondary {
-  background: var(--color-white);
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-support) 100%);
+  color: var(--color-white);
+  border-color: var(--color-secondary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .btn-secondary:hover {
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: linear-gradient(180deg, var(--color-support) 0%, var(--color-secondary) 100%);
+  border-color: var(--color-support);
 }
 
 .btn-badge {
-  border-radius: 50px;
-  padding: var(--space-sm) var(--space-lg);
-  border-width: 2px;
-  font-size: 0.875rem;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border-width: 3px;
+  font-size: 0.9rem;
 }
 
-/* Badge Styling for Categories */
+/* Badge Styling for Categories - License Plate Style */
 .category-badge {
   display: inline-block;
   font-family: var(--font-ui);
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: var(--space-xs) var(--space-md);
-  background: var(--color-support);
+  letter-spacing: 0.15em;
+  padding: 6px 12px;
+  /* License plate styling */
+  background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-support) 100%);
   color: var(--color-white);
-  border-radius: 20px;
+  border: 2px solid var(--color-white);
+  border-radius: 3px;
   margin-right: var(--space-xs);
   margin-bottom: var(--space-xs);
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 .category-badge:hover {
-  background: var(--color-accent);
+  background: linear-gradient(180deg, var(--color-rust) 0%, var(--color-wood) 100%);
   color: var(--color-white);
+  transform: translateY(-1px);
 }
 
 /*--------------------------------------------------------------
