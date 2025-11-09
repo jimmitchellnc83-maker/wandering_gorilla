@@ -35,6 +35,71 @@ function wandering_gorilla_setup() {
     add_theme_support('responsive-embeds');
     add_theme_support('editor-styles');
 
+    // Block Editor (Gutenberg) support
+    add_theme_support('wp-block-styles');
+    add_theme_support('align-wide');
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => __('Dark Weathered Wood', 'wandering-gorilla'),
+            'slug'  => 'dark-wood',
+            'color' => '#3A342E',
+        ),
+        array(
+            'name'  => __('Warm Amber Neon', 'wandering-gorilla'),
+            'slug'  => 'neon-glow',
+            'color' => '#D4935A',
+        ),
+        array(
+            'name'  => __('Warm Lamplight', 'wandering-gorilla'),
+            'slug'  => 'lamplight',
+            'color' => '#E8DCC8',
+        ),
+        array(
+            'name'  => __('Weathered Bronze', 'wandering-gorilla'),
+            'slug'  => 'bronze',
+            'color' => '#A67B5B',
+        ),
+        array(
+            'name'  => __('Dark Sage', 'wandering-gorilla'),
+            'slug'  => 'sage',
+            'color' => '#5D6B4F',
+        ),
+        array(
+            'name'  => __('White', 'wandering-gorilla'),
+            'slug'  => 'white',
+            'color' => '#FFFFFF',
+        ),
+    ));
+
+    // Add editor font sizes
+    add_theme_support('editor-font-sizes', array(
+        array(
+            'name' => __('Small', 'wandering-gorilla'),
+            'size' => 14,
+            'slug' => 'small'
+        ),
+        array(
+            'name' => __('Normal', 'wandering-gorilla'),
+            'size' => 16,
+            'slug' => 'normal'
+        ),
+        array(
+            'name' => __('Medium', 'wandering-gorilla'),
+            'size' => 20,
+            'slug' => 'medium'
+        ),
+        array(
+            'name' => __('Large', 'wandering-gorilla'),
+            'size' => 28,
+            'slug' => 'large'
+        ),
+        array(
+            'name' => __('Huge', 'wandering-gorilla'),
+            'size' => 36,
+            'slug' => 'huge'
+        )
+    ));
+
     // Image sizes
     add_image_size('hero-large', 1400, 600, true);
     add_image_size('card-thumbnail', 800, 600, true);
