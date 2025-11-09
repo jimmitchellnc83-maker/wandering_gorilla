@@ -536,7 +536,7 @@ blockquote::before {
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
-  color: var(--color-support);
+  color: var(--color-lamplight);
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--space-xs);
 }
@@ -731,7 +731,7 @@ label {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-support);
+  color: var(--color-lamplight);
   display: block;
   margin-bottom: var(--space-xs);
   font-weight: 600;
@@ -888,7 +888,7 @@ label {
 .photo-caption {
   font-family: var(--font-ui);
   font-size: 0.875rem;
-  color: var(--color-support);
+  color: var(--color-lamplight);
   text-align: center;
   padding-top: var(--space-sm);
   font-style: italic;
@@ -962,8 +962,8 @@ label {
   font-family: var(--font-ui);
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-support);
+  letter-spacing: 0.15em;
+  color: var(--color-lamplight);
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-sm);
   display: flex;
@@ -1188,7 +1188,7 @@ label {
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-support);
+  color: var(--color-lamplight);
 }
 
 .loading::after {
