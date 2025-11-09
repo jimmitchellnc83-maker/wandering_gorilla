@@ -34,23 +34,25 @@ Text Domain: wandering-gorilla
 1.0 CSS Variables
 --------------------------------------------------------------*/
 :root {
-  /* Dark Desert Twilight Color Palette - Roadhouse at Dusk */
+  /* Vintage Travel Journal Color Palette - Sun-Faded Americana */
   --color-primary: #3A342E; /* dark weathered wood - primary background */
   --color-secondary: #4A433C; /* aged barn interior - content background */
   --color-text: #E8E3D6; /* cream - high contrast for readability */
-  --color-headline: #D4935A; /* warm amber - old neon signs */
+  --color-headline: #C4895A; /* sun-faded orange - old photographs */
   --color-accent: #8B7A6B; /* dusty taupe - faded paint */
-  --color-support: #5D6B4F; /* dark sage - weathered metal */
+  --color-support: #6B7B5F; /* dusty sage - weathered canvas */
   --color-interactive: #A67B5B; /* weathered bronze buttons */
   --color-background: #3A342E; /* dark weathered wood */
   --color-content-bg: #4A433C; /* aged barn interior */
 
-  /* Accent variations */
-  --color-neon-glow: #D4935A; /* warm amber glow */
+  /* Vintage photo accents */
+  --color-photo-amber: #C4895A; /* warm amber - faded photos */
   --color-dark-bronze: #6B5A4A; /* darker bronze */
-  --color-lamplight: #E8DCC8; /* warm lamplight */
+  --color-parchment: #E8DCC8; /* warm parchment */
+  --color-leather: #5D4E3C; /* worn leather */
+  --color-road-dust: rgba(139, 122, 107, 0.15); /* dusty overlay */
 
-  --color-photo-overlay: rgba(58, 52, 46, 0.3);
+  --color-photo-overlay: rgba(58, 52, 46, 0.2);
   --color-white: #FFFFFF;
   --color-border: #5A4F45;
   --color-shadow: rgba(0, 0, 0, 0.4);
@@ -95,30 +97,26 @@ html {
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--color-text);
   background-color: var(--color-background);
   background-image:
-    /* Dark wood grain texture */
+    /* Subtle dust particles */
     repeating-linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.15) 0px,
-      transparent 1px,
-      transparent 3px,
-      rgba(0, 0, 0, 0.15) 4px,
-      transparent 4px,
-      transparent 8px
+      transparent 0px,
+      var(--color-road-dust) 1px,
+      transparent 2px,
+      transparent 4px
     ),
-    /* Weathered wood knots */
+    /* Worn paper texture */
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.08) 2px,
-      rgba(0, 0, 0, 0.08) 3px
-    ),
-    /* Subtle ambient glow */
-    radial-gradient(ellipse at top, rgba(212, 147, 90, 0.05), transparent 50%);
+      transparent 3px,
+      rgba(0, 0, 0, 0.03) 3px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -137,16 +135,16 @@ a {
 
 a:hover {
   color: var(--color-interactive);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.4);
+  opacity: 0.8;
 }
 
 /*--------------------------------------------------------------
-3.0 Typography - Dark Neon Sign & Lamplight Aesthetic
+3.0 Typography - Vintage Travel Journal & Weathered Stencils
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headline);
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 1.1;
   margin-bottom: var(--space-md);
   color: var(--color-headline);
   letter-spacing: 0.02em;
@@ -157,17 +155,16 @@ h1 {
   font-size: 4rem;
   margin-bottom: var(--space-lg);
   letter-spacing: 0.05em;
-  /* Old neon sign effect */
+  /* Vintage stamp/stencil effect */
   border: 4px solid var(--color-interactive);
   background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-primary) 100%);
   padding: var(--space-lg) var(--space-md);
   box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.3),
-    0 4px 12px var(--color-shadow),
-    0 0 20px rgba(212, 147, 90, 0.15);
+    0 4px 12px var(--color-shadow);
   position: relative;
   color: var(--color-headline);
-  text-shadow: 0 0 10px rgba(212, 147, 90, 0.3);
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.4);
 }
 
 h2 {
@@ -176,7 +173,7 @@ h2 {
   border-bottom: 3px solid var(--color-interactive);
   padding-bottom: var(--space-sm);
   color: var(--color-headline);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.2);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 h3 {
@@ -185,6 +182,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-interactive);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 h4 {
@@ -209,8 +207,8 @@ p {
 .lead-text {
   font-size: 1.375rem;
   font-style: italic;
-  color: var(--color-lamplight);
-  border-left: 4px solid var(--color-neon-glow);
+  color: var(--color-parchment);
+  border-left: 4px solid var(--color-photo-amber);
   padding-left: var(--space-md);
   margin: var(--space-lg) 0;
 }
@@ -242,7 +240,7 @@ blockquote::before {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   font-weight: 600;
 }
 
@@ -271,16 +269,16 @@ blockquote::before {
 }
 
 .section-break::after {
-  content: '◆';
+  content: '✦';
   position: absolute;
   bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-background);
   padding: 0 var(--space-md);
-  color: var(--color-neon-glow);
+  color: var(--color-photo-amber);
   font-size: 1.5rem;
-  text-shadow: 0 0 10px rgba(212, 147, 90, 0.4);
+  opacity: 0.6;
 }
 
 .grid {
@@ -307,22 +305,21 @@ blockquote::before {
 }
 
 /*--------------------------------------------------------------
-5.0 Header & Navigation - Dark Roadhouse Aesthetic
+5.0 Header & Navigation - Worn Leather Dashboard
 --------------------------------------------------------------*/
 .site-header {
   position: sticky;
   top: 0;
   height: auto;
   min-height: var(--header-height);
-  /* Dark weathered wood gradient */
-  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 50%, #2E2822 100%);
-  border-top: 3px solid var(--color-interactive);
-  border-bottom: 5px solid var(--color-neon-glow);
+  /* Worn leather dashboard */
+  background: linear-gradient(180deg, var(--color-leather) 0%, var(--color-primary) 100%);
+  border-top: 3px solid var(--color-dark-bronze);
+  border-bottom: 5px solid var(--color-interactive);
   z-index: 1000;
   box-shadow:
     0 4px 12px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(212, 147, 90, 0.1),
-    0 0 20px rgba(212, 147, 90, 0.05);
+    inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .header-inner {
@@ -339,15 +336,13 @@ blockquote::before {
   font-family: var(--font-headline);
   font-size: 2rem;
   font-weight: 900;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  text-shadow:
-    2px 2px 0 rgba(0,0,0,0.6),
-    0 0 12px rgba(212, 147, 90, 0.4);
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
 .site-logo::before {
@@ -356,16 +351,14 @@ blockquote::before {
   background: var(--color-content-bg);
   padding: 4px 8px;
   border-radius: 3px;
-  border: 3px solid var(--color-neon-glow);
+  border: 3px solid var(--color-photo-amber);
   line-height: 1;
-  box-shadow: 0 0 10px rgba(212, 147, 90, 0.3);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
 .site-logo:hover {
-  color: var(--color-neon-glow);
-  text-shadow:
-    2px 2px 0 rgba(0,0,0,0.6),
-    0 0 20px rgba(212, 147, 90, 0.6);
+  color: var(--color-photo-amber);
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
 .main-navigation {
@@ -393,9 +386,9 @@ blockquote::before {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  /* Dark neon sign buttons */
-  background: linear-gradient(180deg, var(--color-dark-bronze) 0%, var(--color-primary) 100%);
-  color: var(--color-lamplight);
+  /* Dusty road sign buttons */
+  background: linear-gradient(180deg, var(--color-dark-bronze) 0%, var(--color-leather) 100%);
+  color: var(--color-parchment);
   padding: 8px 16px;
   border: 3px solid var(--color-interactive);
   border-radius: 3px;
@@ -403,9 +396,7 @@ blockquote::before {
   font-weight: 700;
   position: relative;
   display: block;
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(212, 147, 90, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -416,22 +407,18 @@ blockquote::before {
 .main-navigation a:hover,
 .main-navigation a.current-menu-item {
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
-  border-color: var(--color-neon-glow);
+  color: var(--color-parchment);
+  border-color: var(--color-photo-amber);
   transform: translateY(-2px);
-  box-shadow:
-    0 4px 8px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(212, 147, 90, 0.2),
-    0 0 12px rgba(212, 147, 90, 0.3);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.5);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
-  border: 2px solid var(--color-neon-glow);
+  color: var(--color-parchment);
+  border: 2px solid var(--color-photo-amber);
   padding: var(--space-sm) var(--space-md);
   font-family: var(--font-ui);
   font-size: 1rem;
@@ -443,7 +430,7 @@ blockquote::before {
 }
 
 .menu-toggle:hover {
-  background: linear-gradient(180deg, var(--color-neon-glow) 0%, var(--color-interactive) 100%);
+  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
   box-shadow: 0 4px 12px rgba(212, 147, 90, 0.3);
 }
 
@@ -504,7 +491,7 @@ blockquote::before {
   right: var(--space-lg);
   background: rgba(74, 67, 60, 0.95);
   padding: var(--space-lg);
-  border-left: 6px solid var(--color-neon-glow);
+  border-left: 6px solid var(--color-photo-amber);
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.6),
     0 0 30px rgba(212, 147, 90, 0.2);
@@ -521,7 +508,7 @@ blockquote::before {
   font-family: var(--font-ui);
   font-size: 0.875rem;
   text-transform: uppercase;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   letter-spacing: 0.15em;
   display: flex;
   gap: var(--space-md);
@@ -551,7 +538,7 @@ blockquote::before {
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--space-xs);
 }
@@ -572,7 +559,7 @@ blockquote::before {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   margin-bottom: var(--space-xs);
 }
 
@@ -580,7 +567,7 @@ blockquote::before {
   font-family: var(--font-headline);
   font-size: 1.25rem;
   color: var(--color-headline);
-  text-shadow: 0 0 5px rgba(212, 147, 90, 0.2);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 /* Related Posts Section */
@@ -601,7 +588,7 @@ blockquote::before {
 }
 
 /*--------------------------------------------------------------
-7.0 Buttons & CTAs - Dark Neon Sign Styling
+7.0 Buttons & CTAs - Vintage Worn Badges
 --------------------------------------------------------------*/
 .btn {
   display: inline-block;
@@ -611,10 +598,10 @@ blockquote::before {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 14px 32px;
-  /* Neon sign button with glow */
+  /* Vintage badge/patch */
   border: 4px solid var(--color-interactive);
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-radius: 4px;
   cursor: pointer;
   transition: var(--transition-base);
@@ -622,9 +609,7 @@ blockquote::before {
   position: relative;
   box-shadow:
     0 4px 8px rgba(0,0,0,0.4),
-    inset 0 2px 0 rgba(212, 147, 90, 0.2),
-    inset 0 -2px 4px rgba(0,0,0,0.3),
-    0 0 15px rgba(212, 147, 90, 0.2);
+    inset 0 2px 0 rgba(196, 137, 90, 0.15);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -633,30 +618,24 @@ blockquote::before {
 }
 
 .btn:hover {
-  background: linear-gradient(180deg, var(--color-neon-glow) 0%, var(--color-interactive) 100%);
-  border-color: var(--color-neon-glow);
-  color: var(--color-lamplight);
-  transform: translateY(-3px);
-  box-shadow:
-    0 6px 12px rgba(0,0,0,0.5),
-    inset 0 2px 0 rgba(212, 147, 90, 0.3),
-    0 0 25px rgba(212, 147, 90, 0.4);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.6);
+  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
+  border-color: var(--color-photo-amber);
+  color: var(--color-parchment);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
 }
 
 .btn-secondary {
   background: linear-gradient(180deg, var(--color-support) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-color: var(--color-support);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .btn-secondary:hover {
   background: linear-gradient(180deg, var(--color-dark-bronze) 0%, var(--color-support) 100%);
-  border-color: var(--color-neon-glow);
-  box-shadow:
-    0 6px 12px rgba(0,0,0,0.5),
-    0 0 20px rgba(93, 107, 79, 0.3);
+  border-color: var(--color-photo-amber);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
 }
 
 .btn-badge {
@@ -678,7 +657,7 @@ blockquote::before {
   padding: 6px 12px;
   /* Dark badge gradient */
   background: linear-gradient(180deg, var(--color-dark-bronze) 0%, var(--color-primary) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border: 2px solid var(--color-interactive);
   border-radius: 3px;
   margin-right: var(--space-xs);
@@ -692,12 +671,10 @@ blockquote::before {
 
 .category-badge:hover {
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   transform: translateY(-1px);
-  border-color: var(--color-neon-glow);
-  box-shadow:
-    0 3px 6px rgba(0,0,0,0.4),
-    0 0 12px rgba(212, 147, 90, 0.2);
+  border-color: var(--color-photo-amber);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 
 /*--------------------------------------------------------------
@@ -730,7 +707,7 @@ input[type="search"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--color-neon-glow);
+  border-color: var(--color-photo-amber);
   box-shadow:
     0 0 0 3px rgba(212, 147, 90, 0.2),
     0 0 15px rgba(212, 147, 90, 0.1);
@@ -746,7 +723,7 @@ label {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   display: block;
   margin-bottom: var(--space-xs);
   font-weight: 600;
@@ -780,14 +757,13 @@ label {
   letter-spacing: 0.1em;
   color: var(--color-headline);
   font-weight: 700;
-  text-shadow: 0 0 5px rgba(212, 147, 90, 0.3);
 }
 
 .submit-button {
   position: relative;
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
-  border: 2px solid var(--color-neon-glow);
+  color: var(--color-parchment);
+  border: 2px solid var(--color-photo-amber);
   padding: var(--space-md) var(--space-xl);
   font-family: var(--font-ui);
   font-size: 1rem;
@@ -811,7 +787,7 @@ label {
   width: 24px;
   height: 24px;
   background: var(--color-support);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -821,12 +797,10 @@ label {
 }
 
 .submit-button:hover {
-  background: linear-gradient(180deg, var(--color-neon-glow) 0%, var(--color-interactive) 100%);
+  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
   transform: translateY(-2px);
-  box-shadow:
-    0 6px 16px rgba(0,0,0,0.5),
-    0 0 25px rgba(212, 147, 90, 0.4);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.6);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
 }
 
 /*--------------------------------------------------------------
@@ -903,7 +877,7 @@ label {
 .photo-caption {
   font-family: var(--font-ui);
   font-size: 0.875rem;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   text-align: center;
   padding-top: var(--space-sm);
   font-style: italic;
@@ -976,7 +950,7 @@ label {
   box-shadow:
     8px 8px 0 rgba(0, 0, 0, 0.4),
     0 0 25px rgba(212, 147, 90, 0.15);
-  border-color: var(--color-neon-glow);
+  border-color: var(--color-photo-amber);
 }
 
 .post-card-image {
@@ -1011,8 +985,8 @@ label {
 }
 
 .post-card-title a:hover {
-  color: var(--color-neon-glow);
-  text-shadow: 0 0 10px rgba(212, 147, 90, 0.4);
+  color: var(--color-photo-amber);
+  opacity: 0.9;
 }
 
 .post-card-excerpt {
@@ -1027,7 +1001,7 @@ label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-sm);
   display: flex;
@@ -1052,7 +1026,7 @@ label {
   top: -10px;
   right: var(--space-md);
   background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   padding: var(--space-xs) var(--space-md);
   font-family: var(--font-ui);
   font-size: 0.75rem;
@@ -1060,10 +1034,8 @@ label {
   letter-spacing: 0.1em;
   font-weight: 700;
   transform: rotate(2deg);
-  border: 2px solid var(--color-neon-glow);
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.3),
-    0 0 10px rgba(212, 147, 90, 0.2);
+  border: 2px solid var(--color-photo-amber);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -1071,9 +1043,8 @@ label {
   display: flex;
   gap: 4px;
   font-size: 1.25rem;
-  color: var(--color-neon-glow);
+  color: var(--color-photo-amber);
   margin-bottom: var(--space-sm);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.3);
 }
 
 /*--------------------------------------------------------------
@@ -1083,7 +1054,7 @@ label {
   background: linear-gradient(180deg, var(--color-primary) 0%, #2E2822 100%);
   color: var(--color-text);
   padding: var(--space-xl) 0 var(--space-lg);
-  border-top: 6px solid var(--color-neon-glow);
+  border-top: 6px solid var(--color-photo-amber);
   margin-top: var(--space-xxl);
   box-shadow:
     inset 0 4px 8px rgba(0,0,0,0.3),
@@ -1123,9 +1094,8 @@ label {
 }
 
 .footer-section a:hover {
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   padding-left: var(--space-xs);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.3);
 }
 
 .social-links {
@@ -1142,7 +1112,7 @@ label {
   height: 48px;
   background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
   border-radius: 6px;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   font-size: 1.25rem;
   transition: var(--transition-base);
   border: 2px solid var(--color-interactive);
@@ -1153,14 +1123,11 @@ label {
 }
 
 .social-link:hover {
-  background: linear-gradient(135deg, var(--color-neon-glow) 0%, var(--color-interactive) 100%);
-  color: var(--color-lamplight);
-  border-color: var(--color-neon-glow);
+  background: linear-gradient(135deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
+  color: var(--color-parchment);
+  border-color: var(--color-photo-amber);
   transform: translateY(-4px);
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.4),
-    0 0 20px rgba(212, 147, 90, 0.3);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .footer-bottom {
@@ -1179,14 +1146,13 @@ label {
   font-size: 1.5rem;
   color: var(--color-headline);
   margin-bottom: var(--space-sm);
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .footer-logo::before {
   content: '▲';
-  color: var(--color-neon-glow);
+  color: var(--color-photo-amber);
   margin-right: var(--space-xs);
-  text-shadow: 0 0 10px rgba(212, 147, 90, 0.4);
 }
 
 /*--------------------------------------------------------------
@@ -1226,10 +1192,9 @@ label {
   font-family: var(--font-ui);
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--color-neon-glow);
+  color: var(--color-photo-amber);
   font-size: 0.875rem;
   letter-spacing: 0.1em;
-  text-shadow: 0 0 8px rgba(212, 147, 90, 0.3);
 }
 
 .vintage-stamp::before {
@@ -1252,7 +1217,7 @@ label {
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
 }
 
 .loading::after {
@@ -1315,7 +1280,7 @@ label {
     background: var(--color-secondary);
     flex-direction: column;
     padding: var(--space-md);
-    border-bottom: 3px solid var(--color-neon-glow);
+    border-bottom: 3px solid var(--color-photo-amber);
     box-shadow:
       0 8px 16px var(--color-shadow),
       0 0 20px rgba(212, 147, 90, 0.15);
@@ -1579,7 +1544,7 @@ select:focus {
 }
 
 .wp-block-quote cite {
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1598,7 +1563,7 @@ select:focus {
   padding: 14px 32px;
   border: 4px solid var(--color-interactive);
   background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   border-radius: 4px;
   cursor: pointer;
   transition: var(--transition-base);
@@ -1614,9 +1579,9 @@ select:focus {
 }
 
 .wp-block-button__link:hover {
-  background: linear-gradient(180deg, var(--color-neon-glow) 0%, var(--color-interactive) 100%);
-  border-color: var(--color-neon-glow);
-  color: var(--color-lamplight);
+  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
+  border-color: var(--color-photo-amber);
+  color: var(--color-parchment);
   transform: translateY(-3px);
   box-shadow:
     0 6px 12px rgba(0,0,0,0.5),
@@ -1644,7 +1609,7 @@ select:focus {
 }
 
 .wp-block-cover-text {
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
@@ -1674,7 +1639,7 @@ select:focus {
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   background: var(--color-primary);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
@@ -1697,7 +1662,7 @@ select:focus {
 }
 
 .wp-block-code code {
-  color: var(--color-lamplight);
+  color: var(--color-parchment);
   font-family: "Courier New", monospace;
   font-size: 0.875rem;
 }
