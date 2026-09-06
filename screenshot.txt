@@ -6,16 +6,16 @@ in the root directory of the theme.
 Recommended dimensions: 1200x900 pixels
 
 The screenshot should showcase:
-- Vintage Documentary Americana aesthetic
-- Kodachrome photo treatment examples
-- National Park Service inspired design elements
-- Retro typography (Rockwell, Oswald, Crimson Text)
+- Modern adventure travel layout with natural earth tones
+- Film photo treatment examples with white polaroid borders
+- Typography pairing (Oswald headlines, Crimson Text body)
 - Sample route report layout
 
 Color scheme to feature:
-- Saddle brown (#8B4513)
-- Cherry red (#DC143C)
-- Kodachrome cream (#F5F5DC)
-- Forest green (#2F4F2F)
+- Burnt orange (#C15006)
+- Pine green (#294F50)
+- Warm cream (#F5F2ED)
+- Deep brown-black (#17110F)
+- Golden mustard (#DBA861)
 
 This file serves as a placeholder until a proper screenshot is created.

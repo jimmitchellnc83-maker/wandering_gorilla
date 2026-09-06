@@ -1,19 +1,19 @@
 # Wandering Gorilla WordPress Theme
 
-A vintage Documentary Americana theme inspired by 1940s-60s Kodachrome photography and National Park Service design. Perfect for travel documentation blogs with authentic retro aesthetics.
+A modern adventure travel theme built on natural earth tones and a cactus-inspired palette. Made for route reports, gear reviews, and location notes, with a film-style photo treatment carried over from the theme's documentary roots.
 
-![Theme Version](https://img.shields.io/badge/version-1.0.0-8B4513)
+![Theme Version](https://img.shields.io/badge/version-2.0.0-C15006)
 ![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue)
 ![License](https://img.shields.io/badge/license-GPL--2.0-green)
 
 ## 📸 Theme Features
 
 ### Visual Design
-- **Vintage Color Palette**: Authentic 1940s-60s inspired colors including saddle brown, cherry red, and kodachrome cream
-- **Retro Typography**: Classic slab serif headlines with condensed sans-serif navigation
-- **Kodachrome Photo Treatment**: Automatic vintage photo filters with film grain effects
-- **National Park Service Aesthetic**: Government document and park ranger report styling
-- **Responsive Design**: Mobile-first approach with vintage styling maintained across all devices
+- **Natural Earth Palette**: Burnt orange, pine green, and warm cream, with mustard, dusty teal, and sage accents
+- **Typography**: Oswald headlines and navigation paired with Crimson Text body copy
+- **Film Photo Treatment**: Automatic saturation, contrast, and light sepia filtering, with an optional film grain overlay
+- **Block Editor Support**: Theme color palette, editor font sizes, wide alignment, and editor styles
+- **Responsive Design**: Mobile-first approach with the styling maintained across all devices
 
 ### Content Management
 - **Custom Post Types**:
@@ -22,21 +22,24 @@ A vintage Documentary Americana theme inspired by 1940s-60s Kodachrome photograp
   - Local Intel (location-specific insights)
 - **Custom Taxonomies**: Destinations and Gear Categories
 - **Custom Fields**: Location data, weather conditions, gear used, ratings
-- **Photo Galleries**: Masonry layouts with Kodachrome treatment
+- **Photo Galleries**: Masonry layouts with the film photo treatment
 
 ### Monetization Features
 - Affiliate link management for gear reviews
 - Donation/support page templates
-- Sponsorship rate card integration
-- Media kit functionality
-- Buy Me a Coffee / Venmo integration ready
+- Sponsorship rate card and media kit call-to-action on the contact page
+- Support page ready for Buy Me a Coffee / Venmo / PayPal links
 
 ### Interactive Elements
 - Guest book style comment system
-- Vintage travel sticker social sharing
 - Related posts "Also Worth Seeing" sections
-- Email signup forms with vintage postcard design
-- Mobile hamburger menu with vintage fold-out effect
+- Mobile hamburger menu with click-outside and Escape handling
+- Gallery lightbox, lazy image fade-in, smooth anchor scrolling
+- Hero parallax that respects `prefers-reduced-motion`
+
+Social sharing buttons and an email signup form are not built into the
+WordPress theme. Markup for both ships in `webflow-components/`, and the
+recommended plugins below cover them on the WordPress side.
 
 ## 📋 Requirements
 
@@ -136,7 +139,7 @@ This ensures clean URLs like:
 1. Go to **Route Reports > Add New**
 2. Add your route title
 3. Write your expedition content
-4. Add a featured image (will be displayed with Kodachrome treatment)
+4. Add a featured image (will be displayed with the film photo treatment)
 5. Fill in Route Details meta box:
    - Location
    - Date
@@ -163,17 +166,17 @@ This ensures clean URLs like:
 
 ### Using Photo Galleries
 
-Add vintage-styled photo galleries to any post:
+Add styled photo galleries to any post:
 
 ```
 [gallery ids="1,2,3,4,5,6"]
 ```
 
 Images will automatically receive:
-- Kodachrome color treatment
-- Cream-colored borders
-- Polaroid-style layouts
-- Film grain texture overlay
+- Film-style color treatment (saturation, contrast, light sepia)
+- White polaroid borders with soft shadows
+- Masonry gallery layout
+- Optional film grain texture overlay
 
 ## 🎨 Customization
 
@@ -183,20 +186,23 @@ Edit `style.css` and modify the CSS variables in the `:root` section:
 
 ```css
 :root {
-  --color-primary: #8B4513; /* saddle brown */
-  --color-accent: #DC143C; /* cherry red */
-  --color-background: #F5F5DC; /* kodachrome cream */
-  --color-support: #2F4F2F; /* forest green */
-  --color-text: #3C3C3C; /* faded ink */
+  --color-primary: #C15006; /* burnt orange */
+  --color-secondary: #294F50; /* pine green */
+  --color-background: #F5F2ED; /* warm cream */
+  --color-text: #17110F; /* deep brown-black */
+  --color-text-muted: #4B6068; /* dusty blue-gray */
 }
 ```
+
+If you change these, update the matching entries in the `editor-color-palette`
+block in `functions.php` too, so the block editor offers the same colors.
 
 ### Adding Custom Logo
 
 1. Go to **Appearance > Customize > Site Identity**
 2. Click **Select Logo**
 3. Upload your logo (recommended: 72x72px minimum)
-4. The logo will appear with the vintage National Park Service arrowhead treatment
+4. The logo appears in the sticky site header
 
 ### Customizing Footer
 
@@ -218,10 +224,10 @@ Add custom CSS via **Appearance > Customize > Additional CSS** or edit `style.cs
 
 ### Optional
 - **WP Super Cache**: Performance optimization
-- **Smush**: Image optimization while maintaining Kodachrome quality
+- **Smush**: Image optimization while maintaining photo quality
 - **Social Warfare**: Enhanced social sharing
 - **MailChimp for WordPress**: Newsletter integration
-- **Instagram Feed**: Display Instagram with vintage filters
+- **Instagram Feed**: Display an Instagram feed
 
 ## 🎯 SEO Setup
 
@@ -258,7 +264,7 @@ The theme is fully responsive with:
 1. **Install a caching plugin** (WP Super Cache or W3 Total Cache)
 2. **Enable GZIP compression** in your hosting control panel
 3. **Use a CDN** for static assets
-4. **Optimize images** before upload (keep vintage quality)
+4. **Optimize images** before upload (keep quality high)
 5. **Limit plugins** to only essential ones
 
 ## 🛠️ Troubleshooting
@@ -277,12 +283,19 @@ After activating the theme:
 2. Click **Save Changes** (without making any changes)
 3. This flushes the rewrite rules
 
-### Images Not Getting Kodachrome Treatment
+### Images Not Getting Photo Treatment
 
 Make sure images have the proper classes:
 - Use featured images for automatic treatment
 - Gallery shortcodes apply treatment automatically
 - Manually add `kodachrome-photo` class if needed
+
+### CSS or JS Changes Not Showing Up
+
+The theme versions `style.css` and `assets/js/main.js` by file modification
+time, so edits invalidate the browser cache on their own. If a change still
+does not appear, the cache is coming from somewhere else: purge your caching
+plugin or CDN, then hard reload.
 
 ### Contact Form Not Sending
 
@@ -317,10 +330,9 @@ For theme support, customization help, or bug reports:
 - **Oswald**: Google Fonts
 
 ### Inspiration
-- 1940s-60s Kodachrome photography
-- National Park Service design language
-- Vintage travel documentation aesthetic
-- Documentary Americana style
+- Natural desert and forest earth tones
+- Mid-century travel documentation and photography
+- Modern editorial layout
 
 ## 📊 Theme Structure
 
@@ -343,21 +355,46 @@ wandering-gorilla/
 ├── page-contact.php  (contact page template)
 ├── page-gear.php     (gear list template)
 ├── page-support.php  (support page template)
-├── README.md         (this file)
-├── single.php        (single post template)
-├── style.css         (main stylesheet)
-└── screenshot.png    (theme screenshot)
+├── webflow-components/          (Webflow port of the components)
+├── README.md                    (this file)
+├── CHANGELOG.md                 (release notes)
+├── single.php                   (single post template)
+├── style.css                    (main stylesheet)
+├── preview.html                 (browser preview, links style.css)
+├── preview-modern.html          (standalone preview, current design)
+├── preview-vintage.html         (standalone preview, 1.0.0 vintage magazine)
+├── preview-dark-vintage.html    (standalone preview, dark vintage variant)
+├── webflow-export.html          (Webflow export markup)
+├── webflow-styles.css           (Webflow export styles)
+├── WEBFLOW-SETUP-GUIDE.md       (Webflow setup instructions)
+└── screenshot.txt               (placeholder; replace with screenshot.png)
 ```
+
+## 👀 Previewing Without WordPress
+
+Open `preview.html` in a browser to see the current design rendered against the
+live `style.css`. The others are self-contained snapshots with their CSS
+inlined, useful for comparing directions without touching the theme:
+
+- `preview-vintage.html` - the 1.0.0 Documentary Americana look: Rockwell slab
+  serif with offset headline shadows, saddle brown on kodachrome cream
+- `preview-modern.html` - the current earth-tone direction
+- `preview-dark-vintage.html` - the dark roadhouse variant
+
+Note that these snapshots carry their own inlined CSS. None of it was ever
+ported into `style.css`, so the WordPress theme does not currently match any of
+them.
 
 ## 🎯 Roadmap
 
 Future enhancements planned:
-- Block editor (Gutenberg) custom blocks
+- Custom block editor blocks (color palette and font sizes are already registered)
 - Additional page templates
 - Weather widget integration
-- Map integration with vintage topographic styling
+- Map integration
 - Enhanced gallery lightbox
 - Print stylesheet optimization
+- A real `screenshot.png` to replace the placeholder
 
 ## 🙏 Acknowledgments
 
@@ -365,8 +402,8 @@ Created for adventurers, documentarians, and those who appreciate the authentic 
 
 ---
 
-**Version**: 1.0.0
-**Last Updated**: 2025
+**Version**: 2.0.0
+**Last Updated**: 2026
 **Author**: Wandering Gorilla
 **WordPress Version**: 5.0+
 **PHP Version**: 7.4+

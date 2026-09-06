@@ -63,13 +63,13 @@ get_header();
                     $headers = array('Content-Type: text/plain; charset=UTF-8', 'From: ' . $name . ' <' . $email . '>');
 
                     if (wp_mail($to, $email_subject, $email_body, $headers)) {
-                        echo '<div class="route-report-header" style="background: rgba(47, 79, 47, 0.1); border-color: #2F4F2F;">';
-                        echo '<h3 style="color: #2F4F2F;">✓ ' . __('Message Dispatched Successfully!', 'wandering-gorilla') . '</h3>';
+                        echo '<div class="form-notice form-notice-success">';
+                        echo '<h3>✓ ' . __('Message Dispatched Successfully!', 'wandering-gorilla') . '</h3>';
                         echo '<p>' . __('Your message has been received. We\'ll respond as soon as we return to base camp.', 'wandering-gorilla') . '</p>';
                         echo '</div>';
                     } else {
-                        echo '<div class="route-report-header" style="background: rgba(220, 20, 60, 0.1); border-color: #DC143C;">';
-                        echo '<h3 style="color: #DC143C;">✗ ' . __('Dispatch Failed', 'wandering-gorilla') . '</h3>';
+                        echo '<div class="form-notice form-notice-error">';
+                        echo '<h3>✗ ' . __('Dispatch Failed', 'wandering-gorilla') . '</h3>';
                         echo '<p>' . __('There was an error sending your message. Please try again or contact us directly via email.', 'wandering-gorilla') . '</p>';
                         echo '</div>';
                     }
