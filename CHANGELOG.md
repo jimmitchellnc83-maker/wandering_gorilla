@@ -5,6 +5,55 @@ All notable changes to the Wandering Gorilla WordPress theme will be documented 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-09-06
+
+### Changed
+- Redesigned the theme around a natural earth-tone and cactus-inspired palette,
+  replacing the vintage Documentary Americana look
+- Typography set to Oswald for headlines, subheads, and navigation, with Crimson
+  Text for body copy and a system sans-serif stack for UI
+- Photo treatment softened from heavy vintage filtering to saturation, contrast,
+  and light sepia over white polaroid borders
+- Block editor color palette in `functions.php` now mirrors the `:root` custom
+  properties in `style.css` (it still listed the retired neon roadhouse colors)
+- Theme header tags replaced with tags WordPress actually recognises
+
+### Fixed
+- Seven CSS custom properties (`--photo-border`, `--color-photo-overlay`,
+  `--color-parchment`, `--color-photo-amber`, `--color-dark-bronze`,
+  `--color-support`, `--color-accent`) survived the palette rewrite as
+  references but lost their definitions, leaving 55 rules resolving to nothing.
+  Photo frames, photo overlays, button gradients, and text on dark backgrounds
+  were all affected. `--photo-border` and `--color-photo-overlay` are now
+  defined; the rest were renamed to their current palette equivalents
+- Contact form success and failure notices used inline styles hardcoded to the
+  retired 1.0.0 palette. They now use `.form-notice-success` and
+  `.form-notice-error`, driven by new `--color-success` and `--color-error`
+  custom properties
+- `style.css` and `assets/js/main.js` were enqueued with a hardcoded `1.0.0`
+  version, so browsers and caching layers kept serving stale assets after every
+  edit. Both now use `wandering_gorilla_asset_version()`, which appends the
+  file's modification time to the theme version
+- Removed the hardcoded `?v=3.0.542ee13&refresh=force` cache-busting query from
+  the stylesheet link in `preview.html`
+- Added the missing `load_theme_textdomain()` call, so the translation strings
+  used throughout the theme can actually load
+
+### Added
+- Block editor support: editor styles, wide alignment, block styles, editor font
+  sizes, and a theme color palette
+- Video support and deeper polaroid shadows in post content
+- Webflow export package (`webflow-export.html`, `webflow-styles.css`,
+  `webflow-components/`, `WEBFLOW-SETUP-GUIDE.md`)
+- Standalone browser previews: `preview.html`, `preview-modern.html`, and
+  `preview-dark-vintage.html`
+
+### Removed
+- `preview-standalone.html`, a stale 1.0.0 preview with the old stylesheet
+  inlined. It also collided with `PREVIEW-STANDALONE.html` on case-insensitive
+  filesystems, where the two resolved to the same path. The surviving previews
+  are now lowercase and distinctly named
+
 ## [1.0.0] - 2025-11-08
 
 ### Added
@@ -116,6 +165,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
+- **2.0.0** - Modern earth-tone redesign and asset cache-busting fix (September 6, 2026)
 - **1.0.0** - Initial Release (November 8, 2025)
 
 ---

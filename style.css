@@ -7,7 +7,7 @@ Author: Wandering Gorilla
 Author URI: https://wanderinggorilla.com
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, travel, modern, adventure, earth-tones, cactus-palette, interactive, seo-optimized, responsive
+Tags: blog, news, photography, custom-logo, custom-menu, featured-images, footer-widgets, threaded-comments, editor-style, block-styles, wide-blocks, translation-ready
 Text Domain: wandering-gorilla
 */
 
@@ -73,6 +73,9 @@ Text Domain: wandering-gorilla
   --color-border: rgba(23, 17, 15, 0.1); /* subtle borders */
   --color-shadow: rgba(23, 17, 15, 0.15); /* soft shadows */
   --color-overlay: rgba(23, 17, 15, 0.5); /* dark overlay */
+  --color-photo-overlay: rgba(219, 168, 97, 0.12); /* warm cast over photos */
+  --color-success: #294F50; /* pine green - success feedback */
+  --color-error: #8C2F1B; /* brick red - error feedback */
 
   /* Typography - Modern & Readable */
   --font-headline: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -91,6 +94,7 @@ Text Domain: wandering-gorilla
   /* Layout */
   --container-max: 1200px;
   --header-height: 80px;
+  --photo-border: 12px; /* white frame around photos and polaroids */
   --border-radius: 8px;
   --border-radius-lg: 16px;
 
@@ -265,7 +269,7 @@ blockquote::before {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   font-weight: 600;
 }
 
@@ -301,7 +305,7 @@ blockquote::before {
   transform: translateX(-50%);
   background: var(--color-background);
   padding: 0 var(--space-md);
-  color: var(--color-photo-amber);
+  color: var(--color-accent-mustard);
   font-size: 1.5rem;
   opacity: 0.6;
 }
@@ -519,7 +523,7 @@ blockquote::before {
   right: var(--space-lg);
   background: rgba(74, 67, 60, 0.95);
   padding: var(--space-lg);
-  border-left: 6px solid var(--color-photo-amber);
+  border-left: 6px solid var(--color-accent-mustard);
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.6),
     0 0 30px rgba(212, 147, 90, 0.2);
@@ -536,7 +540,7 @@ blockquote::before {
   font-family: var(--font-ui);
   font-size: 0.875rem;
   text-transform: uppercase;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   letter-spacing: 0.15em;
   display: flex;
   gap: var(--space-md);
@@ -566,7 +570,7 @@ blockquote::before {
   font-size: 1rem;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-md);
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--space-xs);
 }
@@ -587,7 +591,7 @@ blockquote::before {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   margin-bottom: var(--space-xs);
 }
 
@@ -740,7 +744,7 @@ input[type="search"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--color-photo-amber);
+  border-color: var(--color-accent-mustard);
   box-shadow:
     0 0 0 3px rgba(212, 147, 90, 0.2),
     0 0 15px rgba(212, 147, 90, 0.1);
@@ -756,7 +760,7 @@ label {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   display: block;
   margin-bottom: var(--space-xs);
   font-weight: 600;
@@ -794,9 +798,9 @@ label {
 
 .submit-button {
   position: relative;
-  background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-parchment);
-  border: 2px solid var(--color-photo-amber);
+  background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-interactive-hover) 100%);
+  color: var(--color-text-light);
+  border: 2px solid var(--color-accent-mustard);
   padding: var(--space-md) var(--space-xl);
   font-family: var(--font-ui);
   font-size: 1rem;
@@ -819,8 +823,8 @@ label {
   right: -8px;
   width: 24px;
   height: 24px;
-  background: var(--color-support);
-  color: var(--color-parchment);
+  background: var(--color-secondary);
+  color: var(--color-text-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -830,10 +834,46 @@ label {
 }
 
 .submit-button:hover {
-  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
+  background: linear-gradient(180deg, var(--color-accent-mustard) 0%, var(--color-interactive) 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.5);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Form Notices */
+.form-notice {
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-left: 6px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-content-bg);
+}
+
+.form-notice h3 {
+  margin-bottom: var(--space-xs);
+  font-size: 1.25rem;
+}
+
+.form-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.form-notice-success {
+  border-left-color: var(--color-success);
+  background: rgba(41, 79, 80, 0.08);
+}
+
+.form-notice-success h3 {
+  color: var(--color-success);
+}
+
+.form-notice-error {
+  border-left-color: var(--color-error);
+  background: rgba(140, 47, 27, 0.08);
+}
+
+.form-notice-error h3 {
+  color: var(--color-error);
 }
 
 /*--------------------------------------------------------------
@@ -910,7 +950,7 @@ label {
 .photo-caption {
   font-family: var(--font-ui);
   font-size: 0.875rem;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   text-align: center;
   padding-top: var(--space-sm);
   font-style: italic;
@@ -1052,8 +1092,8 @@ label {
   position: absolute;
   top: -10px;
   right: var(--space-md);
-  background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-parchment);
+  background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-interactive-hover) 100%);
+  color: var(--color-text-light);
   padding: var(--space-xs) var(--space-md);
   font-family: var(--font-ui);
   font-size: 0.75rem;
@@ -1061,7 +1101,7 @@ label {
   letter-spacing: 0.1em;
   font-weight: 700;
   transform: rotate(2deg);
-  border: 2px solid var(--color-photo-amber);
+  border: 2px solid var(--color-accent-mustard);
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
@@ -1070,7 +1110,7 @@ label {
   display: flex;
   gap: 4px;
   font-size: 1.25rem;
-  color: var(--color-photo-amber);
+  color: var(--color-accent-mustard);
   margin-bottom: var(--space-sm);
 }
 
@@ -1081,7 +1121,7 @@ label {
   background: linear-gradient(180deg, var(--color-primary) 0%, #2E2822 100%);
   color: var(--color-text);
   padding: var(--space-xl) 0 var(--space-lg);
-  border-top: 6px solid var(--color-photo-amber);
+  border-top: 6px solid var(--color-accent-mustard);
   margin-top: var(--space-xxl);
   box-shadow:
     inset 0 4px 8px rgba(0,0,0,0.3),
@@ -1121,7 +1161,7 @@ label {
 }
 
 .footer-section a:hover {
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   padding-left: var(--space-xs);
 }
 
@@ -1137,9 +1177,9 @@ label {
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
+  background: linear-gradient(135deg, var(--color-interactive) 0%, var(--color-interactive-hover) 100%);
   border-radius: 6px;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   font-size: 1.25rem;
   transition: var(--transition-base);
   border: 2px solid var(--color-interactive);
@@ -1150,9 +1190,9 @@ label {
 }
 
 .social-link:hover {
-  background: linear-gradient(135deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
-  color: var(--color-parchment);
-  border-color: var(--color-photo-amber);
+  background: linear-gradient(135deg, var(--color-accent-mustard) 0%, var(--color-interactive) 100%);
+  color: var(--color-text-light);
+  border-color: var(--color-accent-mustard);
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
@@ -1178,7 +1218,7 @@ label {
 
 .footer-logo::before {
   content: '▲';
-  color: var(--color-photo-amber);
+  color: var(--color-accent-mustard);
   margin-right: var(--space-xs);
 }
 
@@ -1219,7 +1259,7 @@ label {
   font-family: var(--font-ui);
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--color-photo-amber);
+  color: var(--color-accent-mustard);
   font-size: 0.875rem;
   letter-spacing: 0.1em;
 }
@@ -1244,7 +1284,7 @@ label {
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
 }
 
 .loading::after {
@@ -1307,7 +1347,7 @@ label {
     background: var(--color-secondary);
     flex-direction: column;
     padding: var(--space-md);
-    border-bottom: 3px solid var(--color-photo-amber);
+    border-bottom: 3px solid var(--color-accent-mustard);
     box-shadow:
       0 8px 16px var(--color-shadow),
       0 0 20px rgba(212, 147, 90, 0.15);
@@ -1330,8 +1370,8 @@ label {
   h1 {
     font-size: 2rem;
     text-shadow:
-      2px 2px 0 var(--color-accent),
-      4px 4px 0 var(--color-support);
+      2px 2px 0 var(--color-primary),
+      4px 4px 0 var(--color-secondary);
   }
 
   .grid-masonry {
@@ -1473,7 +1513,7 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -1481,9 +1521,10 @@ select:focus {
 @media (prefers-contrast: high) {
   :root {
     --color-primary: #000000;
-    --color-accent: #FF0000;
+    --color-interactive: #000000;
     --color-background: #FFFFFF;
     --color-text: #000000;
+    --color-border: #000000;
   }
 }
 
@@ -1571,7 +1612,7 @@ select:focus {
 }
 
 .wp-block-quote cite {
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1589,8 +1630,8 @@ select:focus {
   letter-spacing: 0.1em;
   padding: 14px 32px;
   border: 4px solid var(--color-interactive);
-  background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-dark-bronze) 100%);
-  color: var(--color-parchment);
+  background: linear-gradient(180deg, var(--color-interactive) 0%, var(--color-interactive-hover) 100%);
+  color: var(--color-text-light);
   border-radius: 4px;
   cursor: pointer;
   transition: var(--transition-base);
@@ -1606,9 +1647,9 @@ select:focus {
 }
 
 .wp-block-button__link:hover {
-  background: linear-gradient(180deg, var(--color-photo-amber) 0%, var(--color-interactive) 100%);
-  border-color: var(--color-photo-amber);
-  color: var(--color-parchment);
+  background: linear-gradient(180deg, var(--color-accent-mustard) 0%, var(--color-interactive) 100%);
+  border-color: var(--color-accent-mustard);
+  color: var(--color-text-light);
   transform: translateY(-3px);
   box-shadow:
     0 6px 12px rgba(0,0,0,0.5),
@@ -1636,7 +1677,7 @@ select:focus {
 }
 
 .wp-block-cover-text {
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
@@ -1666,7 +1707,7 @@ select:focus {
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   background: var(--color-primary);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
@@ -1689,7 +1730,7 @@ select:focus {
 }
 
 .wp-block-code code {
-  color: var(--color-parchment);
+  color: var(--color-text-light);
   font-family: "Courier New", monospace;
   font-size: 0.875rem;
 }
