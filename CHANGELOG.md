@@ -49,10 +49,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `preview-dark-vintage.html`
 
 ### Removed
-- `preview-standalone.html`, a stale 1.0.0 preview with the old stylesheet
-  inlined. It also collided with `PREVIEW-STANDALONE.html` on case-insensitive
-  filesystems, where the two resolved to the same path. The surviving previews
-  are now lowercase and distinctly named
+- `preview-standalone.html` as a filename. It collided with
+  `PREVIEW-STANDALONE.html` on case-insensitive filesystems, where the two
+  resolved to the same path. Its contents are preserved as
+  `preview-vintage.html`; all previews are now lowercase and distinctly named
 
 ## [1.0.0] - 2025-11-08
 

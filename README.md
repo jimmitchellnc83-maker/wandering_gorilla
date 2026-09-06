@@ -362,6 +362,7 @@ wandering-gorilla/
 ├── style.css                    (main stylesheet)
 ├── preview.html                 (browser preview, links style.css)
 ├── preview-modern.html          (standalone preview, current design)
+├── preview-vintage.html         (standalone preview, 1.0.0 vintage magazine)
 ├── preview-dark-vintage.html    (standalone preview, dark vintage variant)
 ├── webflow-export.html          (Webflow export markup)
 ├── webflow-styles.css           (Webflow export styles)
@@ -372,9 +373,17 @@ wandering-gorilla/
 ## 👀 Previewing Without WordPress
 
 Open `preview.html` in a browser to see the current design rendered against the
-live `style.css`. `preview-modern.html` and `preview-dark-vintage.html` are
-self-contained snapshots with their CSS inlined, useful for sharing a look
-without the rest of the theme.
+live `style.css`. The others are self-contained snapshots with their CSS
+inlined, useful for comparing directions without touching the theme:
+
+- `preview-vintage.html` - the 1.0.0 Documentary Americana look: Rockwell slab
+  serif with offset headline shadows, saddle brown on kodachrome cream
+- `preview-modern.html` - the current earth-tone direction
+- `preview-dark-vintage.html` - the dark roadhouse variant
+
+Note that these snapshots carry their own inlined CSS. None of it was ever
+ported into `style.css`, so the WordPress theme does not currently match any of
+them.
 
 ## 🎯 Roadmap
 
