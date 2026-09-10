@@ -12,9 +12,42 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Theme version, used as the base for asset cache busting.
+ */
+if (!defined('WANDERING_GORILLA_VERSION')) {
+    define('WANDERING_GORILLA_VERSION', '3.0.0');
+}
+
+/**
+ * Build a version string for a theme asset.
+ *
+ * Appends the file's modification time to the theme version so browsers and
+ * caching layers pick up edits instead of serving a stale copy.
+ *
+ * @param string $relative_path Path to the asset, relative to the theme root.
+ * @return string Version string for wp_enqueue_style() / wp_enqueue_script().
+ */
+function wandering_gorilla_asset_version($relative_path) {
+    $relative_path = ltrim($relative_path, '/');
+
+    foreach (array(get_stylesheet_directory(), get_template_directory()) as $directory) {
+        $file = $directory . '/' . $relative_path;
+
+        if (file_exists($file)) {
+            return WANDERING_GORILLA_VERSION . '.' . filemtime($file);
+        }
+    }
+
+    return WANDERING_GORILLA_VERSION;
+}
+
+/**
  * Theme Setup
  */
 function wandering_gorilla_setup() {
+    // Translations
+    load_theme_textdomain('wandering-gorilla', get_template_directory() . '/languages');
+
     // Add theme support
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -38,36 +71,47 @@ function wandering_gorilla_setup() {
     // Block Editor (Gutenberg) support
     add_theme_support('wp-block-styles');
     add_theme_support('align-wide');
+    // Mirrors the :root custom properties in style.css.
     add_theme_support('editor-color-palette', array(
         array(
-            'name'  => __('Dark Weathered Wood', 'wandering-gorilla'),
-            'slug'  => 'dark-wood',
-            'color' => '#3A342E',
+            'name'  => __('Press Red', 'wandering-gorilla'),
+            'slug'  => 'primary',
+            'color' => '#B91D1D',
         ),
         array(
-            'name'  => __('Warm Amber Neon', 'wandering-gorilla'),
-            'slug'  => 'neon-glow',
-            'color' => '#D4935A',
+            'name'  => __('Sepia', 'wandering-gorilla'),
+            'slug'  => 'secondary',
+            'color' => '#5C3B22',
         ),
         array(
-            'name'  => __('Warm Lamplight', 'wandering-gorilla'),
-            'slug'  => 'lamplight',
-            'color' => '#E8DCC8',
+            'name'  => __('Paper', 'wandering-gorilla'),
+            'slug'  => 'paper',
+            'color' => '#EBDFC4',
         ),
         array(
-            'name'  => __('Weathered Bronze', 'wandering-gorilla'),
-            'slug'  => 'bronze',
-            'color' => '#A67B5B',
+            'name'  => __('Leaf', 'wandering-gorilla'),
+            'slug'  => 'paper-soft',
+            'color' => '#F2E8D2',
         ),
         array(
-            'name'  => __('Dark Sage', 'wandering-gorilla'),
-            'slug'  => 'sage',
-            'color' => '#5D6B4F',
+            'name'  => __('Ink', 'wandering-gorilla'),
+            'slug'  => 'dark',
+            'color' => '#14110B',
         ),
         array(
-            'name'  => __('White', 'wandering-gorilla'),
-            'slug'  => 'white',
-            'color' => '#FFFFFF',
+            'name'  => __('Muted Ink', 'wandering-gorilla'),
+            'slug'  => 'muted',
+            'color' => '#6A5E45',
+        ),
+        array(
+            'name'  => __('Gold', 'wandering-gorilla'),
+            'slug'  => 'gold',
+            'color' => '#B89048',
+        ),
+        array(
+            'name'  => __('Rule', 'wandering-gorilla'),
+            'slug'  => 'rule',
+            'color' => '#C7B991',
         ),
     ));
 
@@ -119,13 +163,13 @@ add_action('after_setup_theme', 'wandering_gorilla_setup');
  */
 function wandering_gorilla_scripts() {
     // Main stylesheet
-    wp_enqueue_style('wandering-gorilla-style', get_stylesheet_uri(), array(), '1.0.0');
+    wp_enqueue_style('wandering-gorilla-style', get_stylesheet_uri(), array(), wandering_gorilla_asset_version('style.css'));
 
     // Google Fonts
-    wp_enqueue_style('wandering-gorilla-fonts', 'https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('wandering-gorilla-fonts', 'https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600;700&display=swap', array(), null);
 
     // Main JavaScript
-    wp_enqueue_script('wandering-gorilla-scripts', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
+    wp_enqueue_script('wandering-gorilla-scripts', get_template_directory_uri() . '/assets/js/main.js', array(), wandering_gorilla_asset_version('assets/js/main.js'), true);
 
     // Comments reply
     if (is_singular() && comments_open() && get_option('thread_comments')) {

@@ -48,19 +48,29 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Theme Styles -->
-    <link rel="stylesheet" href="style.css?v=3.0.542ee13&refresh=force">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- Header -->
 <header class="site-header" role="banner">
+
+    <div class="site-masthead">
+        <div class="issue-line">A Field Journal of the Slow Road</div>
+        <p class="masthead-title"><a href="#" rel="home">Wandering Gorilla</a></p>
+        <div class="imprint-line">Published irregularly by Wandering Gorilla</div>
+    </div>
+
+</header>
+
+<div class="site-nav-bar">
     <div class="header-inner">
         <div class="site-branding">
-            <a href="#" class="site-logo" rel="home">Wandering Gorilla</a>
+            <a href="#" class="site-title" rel="home">Wandering Gorilla</a>
         </div>
 
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
@@ -78,19 +88,20 @@
             </ul>
         </nav>
     </div>
-</header>
+</div><!-- .site-nav-bar -->
 
 <div id="content" class="site-content">
     <div class="container">
 
         <!-- Hero Section -->
-        <section class="hero-section" style="background: linear-gradient(rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 600%22%3E%3Crect fill=%22%238B4513%22 width=%221400%22 height=%22600%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2248%22 fill=%22%23F5F5DC%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22serif%22%3EHERO IMAGE%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
+        <section class="hero-section">
+            <img class="hero-image" src="assets/images/yosemite-1953.jpg" alt="Yosemite Valley from the Tunnel View overlook, 1953">
             <div class="hero-content">
                 <h1>Trail to Grand Canyon's Hidden Rim</h1>
                 <div class="hero-meta">
-                    <span class="vintage-label">📍 Arizona, USA</span>
-                    <span class="vintage-label">📅 October 15, 2025</span>
-                    <span class="vintage-label">🥾 24 miles</span>
+                    <span class="vintage-label">Arizona, USA</span>
+                    <span class="vintage-label">15 October 2025</span>
+                    <span class="vintage-label">24 Miles</span>
                 </div>
                 <a href="#" class="btn btn-secondary">View Full Report</a>
             </div>
@@ -112,7 +123,7 @@
 
                     <div class="post-card-image">
                         <a href="#" itemprop="url">
-                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #8B4513; height: 400px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui); font-size: 1.5rem;">
+                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #DCCEAA; height: 400px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui); font-size: 1.5rem;">
                                 ROUTE PHOTO
                             </div>
                         </a>
@@ -140,7 +151,7 @@
                 <article class="post-card">
                     <div class="post-card-image">
                         <a href="#">
-                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #2F4F2F; height: 400px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui); font-size: 1.5rem;">
+                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #D3C7A4; height: 400px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui); font-size: 1.5rem;">
                                 ROUTE PHOTO
                             </div>
                         </a>
@@ -167,7 +178,7 @@
                 <article class="post-card">
                     <div class="post-card-image">
                         <a href="#">
-                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #DC143C; height: 400px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui); font-size: 1.5rem;">
+                            <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #C9BC96; height: 400px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui); font-size: 1.5rem;">
                                 ROUTE PHOTO
                             </div>
                         </a>
@@ -205,7 +216,7 @@
                 <!-- Gear Card 1 -->
                 <article class="gear-card">
                     <div class="polaroid-photo mb-md">
-                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #8B4513; height: 300px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui);">
+                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #DCCEAA; height: 300px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui);">
                             GEAR PHOTO
                         </div>
                     </div>
@@ -234,7 +245,7 @@
                 <!-- Gear Card 2 -->
                 <article class="gear-card">
                     <div class="polaroid-photo mb-md">
-                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #2F4F2F; height: 300px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui);">
+                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #D3C7A4; height: 300px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui);">
                             GEAR PHOTO
                         </div>
                     </div>
@@ -263,7 +274,7 @@
                 <!-- Gear Card 3 -->
                 <article class="gear-card">
                     <div class="polaroid-photo mb-md">
-                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #DC143C; height: 300px; display: flex; align-items: center; justify-content: center; color: #F5F5DC; font-family: var(--font-ui);">
+                        <div style="background: linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)), #C9BC96; height: 300px; display: flex; align-items: center; justify-content: center; color: #5C3B22; font-family: var(--font-ui);">
                             GEAR PHOTO
                         </div>
                     </div>

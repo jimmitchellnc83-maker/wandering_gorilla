@@ -1,21 +1,27 @@
 SCREENSHOT PLACEHOLDER
 
-For the theme to display properly in WordPress, you should add a screenshot.png file
-in the root directory of the theme.
+For the theme to display properly in WordPress, add a screenshot.png file in
+the root directory of the theme.
 
 Recommended dimensions: 1200x900 pixels
 
-The screenshot should showcase:
-- Vintage Documentary Americana aesthetic
-- Kodachrome photo treatment examples
-- National Park Service inspired design elements
-- Retro typography (Rockwell, Oswald, Crimson Text)
-- Sample route report layout
+The screenshot should show:
+- The red masthead over the sticky department bar
+- A hero photograph set as a full-bleed plate with the headline over it
+- Post cards in the plate-and-caption pattern: ruled mount, red category tag,
+  Bodoni title, Caslon excerpt
+- A heavy-over-light section rule
 
-Color scheme to feature:
-- Saddle brown (#8B4513)
-- Cherry red (#DC143C)
-- Kodachrome cream (#F5F5DC)
-- Forest green (#2F4F2F)
+Palette to feature:
+- Paper       #EBDFC4
+- Ink         #14110B
+- Press red   #B91D1D
+- Gold        #B89048
+- Rule        #C7B991
 
-This file serves as a placeholder until a proper screenshot is created.
+Typography to feature:
+- Bodoni Moda display
+- Libre Caslon Text body
+- Oswald signage
+
+This file is a placeholder until a proper screenshot is created.
