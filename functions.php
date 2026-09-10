@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
  * Theme version, used as the base for asset cache busting.
  */
 if (!defined('WANDERING_GORILLA_VERSION')) {
-    define('WANDERING_GORILLA_VERSION', '2.0.0');
+    define('WANDERING_GORILLA_VERSION', '3.0.0');
 }
 
 /**
@@ -74,44 +74,44 @@ function wandering_gorilla_setup() {
     // Mirrors the :root custom properties in style.css.
     add_theme_support('editor-color-palette', array(
         array(
-            'name'  => __('Burnt Orange', 'wandering-gorilla'),
+            'name'  => __('Press Red', 'wandering-gorilla'),
             'slug'  => 'primary',
-            'color' => '#C15006',
+            'color' => '#B91D1D',
         ),
         array(
-            'name'  => __('Pine Green', 'wandering-gorilla'),
+            'name'  => __('Sepia', 'wandering-gorilla'),
             'slug'  => 'secondary',
-            'color' => '#294F50',
+            'color' => '#5C3B22',
         ),
         array(
-            'name'  => __('Warm Cream', 'wandering-gorilla'),
-            'slug'  => 'cream',
-            'color' => '#F5F2ED',
+            'name'  => __('Paper', 'wandering-gorilla'),
+            'slug'  => 'paper',
+            'color' => '#EBDFC4',
         ),
         array(
-            'name'  => __('Deep Brown Black', 'wandering-gorilla'),
+            'name'  => __('Leaf', 'wandering-gorilla'),
+            'slug'  => 'paper-soft',
+            'color' => '#F2E8D2',
+        ),
+        array(
+            'name'  => __('Ink', 'wandering-gorilla'),
             'slug'  => 'dark',
-            'color' => '#17110F',
+            'color' => '#14110B',
         ),
         array(
-            'name'  => __('Golden Mustard', 'wandering-gorilla'),
-            'slug'  => 'mustard',
-            'color' => '#DBA861',
+            'name'  => __('Muted Ink', 'wandering-gorilla'),
+            'slug'  => 'muted',
+            'color' => '#6A5E45',
         ),
         array(
-            'name'  => __('Dusty Teal', 'wandering-gorilla'),
-            'slug'  => 'teal',
-            'color' => '#608E81',
+            'name'  => __('Gold', 'wandering-gorilla'),
+            'slug'  => 'gold',
+            'color' => '#B89048',
         ),
         array(
-            'name'  => __('Sage Green', 'wandering-gorilla'),
-            'slug'  => 'sage',
-            'color' => '#7E835F',
-        ),
-        array(
-            'name'  => __('White', 'wandering-gorilla'),
-            'slug'  => 'white',
-            'color' => '#FFFFFF',
+            'name'  => __('Rule', 'wandering-gorilla'),
+            'slug'  => 'rule',
+            'color' => '#C7B991',
         ),
     ));
 
@@ -166,7 +166,7 @@ function wandering_gorilla_scripts() {
     wp_enqueue_style('wandering-gorilla-style', get_stylesheet_uri(), array(), wandering_gorilla_asset_version('style.css'));
 
     // Google Fonts
-    wp_enqueue_style('wandering-gorilla-fonts', 'https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('wandering-gorilla-fonts', 'https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500;600;700&display=swap', array(), null);
 
     // Main JavaScript
     wp_enqueue_script('wandering-gorilla-scripts', get_template_directory_uri() . '/assets/js/main.js', array(), wandering_gorilla_asset_version('assets/js/main.js'), true);

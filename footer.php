@@ -12,7 +12,7 @@
                 <div class="footer-section">
                     <div class="footer-logo"><?php bloginfo('name'); ?></div>
                     <p><?php bloginfo('description'); ?></p>
-                    <p><?php _e('Documenting adventures across the American landscape since day one.', 'wandering-gorilla'); ?></p>
+                    <p><?php _e('A field journal of the slow road, the small workshop, and the long view from a parked van.', 'wandering-gorilla'); ?></p>
                 </div>
             <?php endif; ?>
 
@@ -22,7 +22,7 @@
                 </div>
             <?php else : ?>
                 <div class="footer-section">
-                    <h4><?php _e('Navigate', 'wandering-gorilla'); ?></h4>
+                    <h4><?php _e('Departments', 'wandering-gorilla'); ?></h4>
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'footer',
@@ -39,7 +39,7 @@
                 </div>
             <?php else : ?>
                 <div class="footer-section">
-                    <h4><?php _e('Stay Connected', 'wandering-gorilla'); ?></h4>
+                    <h4><?php _e('Write In', 'wandering-gorilla'); ?></h4>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Instagram" title="Follow on Instagram">
                             <span>IG</span>
@@ -56,7 +56,7 @@
                     </div>
                     <p class="mt-md">
                         <a href="<?php echo esc_url(home_url('/support')); ?>" class="btn btn-badge">
-                            <?php _e('Support This Work', 'wandering-gorilla'); ?>
+                            <?php _e('Support the Journal', 'wandering-gorilla'); ?>
                         </a>
                     </p>
                 </div>
@@ -66,7 +66,7 @@
         <div class="footer-bottom">
             <p>
                 &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.
-                <?php _e('Field Reports & Documentation.', 'wandering-gorilla'); ?>
+                <?php _e('All rights, modestly, reserved.', 'wandering-gorilla'); ?>
                 <?php
                 printf(
                     __('Powered by <a href="%s" rel="nofollow">WordPress</a>', 'wandering-gorilla'),
@@ -74,7 +74,7 @@
                 );
                 ?>
             </p>
-            <p class="vintage-stamp"><?php _e('Authentic American Adventure', 'wandering-gorilla'); ?></p>
+            <p class="vintage-stamp"><?php _e('Set in Bodoni Moda &amp; Libre Caslon Text &middot; Department titles in Oswald', 'wandering-gorilla'); ?></p>
         </div>
     </div>
 </footer>

@@ -3,28 +3,29 @@
 A WordPress theme for an adventure travel blog, built around route reports, gear
 reviews, and location notes.
 
-![Theme Version](https://img.shields.io/badge/version-2.0.0-C15006)
+![Theme Version](https://img.shields.io/badge/version-3.0.0-B91D1D)
 ![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue)
 ![License](https://img.shields.io/badge/license-GPL--2.0-green)
 
-## Current state of this repository
+## The design
 
-Two things live here, and they do not currently look alike:
+The theme is set as a mid-century field journal.
 
-1. **The WordPress theme** (all the `.php` files, `style.css`, `assets/`). This
-   is version 2.0.0 and renders in the "modern adventure travel" direction:
-   natural earth tones on a cactus-inspired palette, Oswald headlines over
-   Crimson Text body copy.
+- **Palette**: warm paper (`#EBDFC4`) and near-black ink (`#14110B`), with a
+  single press red (`#B91D1D`) for the masthead, department tags and folios,
+  and gold (`#B89048`) used sparingly as a second accent.
+- **Typography**: Bodoni Moda for display, Libre Caslon Text for reading,
+  Oswald for signage: navigation, running heads, labels and captions.
+- **Structure**: a red masthead over a sticky department bar, heavy-over-light
+  section rules, justified body columns with a drop cap opening an article,
+  and photographs set as plates: a ruled mount with an italic caption beneath.
 
-2. **`preview-magazine.html`**, a standalone design mockup with its CSS inlined.
-   It is the intended next direction for the theme: a 1956 field journal
-   ("Vol III, No 7") in Bodoni Moda, Libre Caslon Text, and Oswald on a
-   paper-and-ink palette. It is not wired to WordPress and shares only one font
-   with the live theme.
-
-Porting the magazine design into the theme is in progress. Until that lands, the
-site does not render in the magazine's visual language. See
-[CHANGELOG.md](CHANGELOG.md) for what has been done so far.
+`preview-magazine.html` is the design mockup this came from, kept in the
+repository as the reference for the visual language. It presents the same
+design as a twelve-spread page-turning book. The theme deliberately does not
+reproduce that mechanic. A blog is a scrolling document, so what carried over
+is the typography, the palette, the masthead, the rules, the plate-and-caption
+pattern and the editorial density, not the spreads.
 
 ## Requirements
 
@@ -84,8 +85,8 @@ In `assets/js/main.js` and `style.css`:
 - Smooth anchor scrolling that also moves focus
 - Hero parallax, suppressed under `prefers-reduced-motion`
 - Client-side contact form validation
-- Film-style photo treatment (saturation, contrast, light sepia) with white
-  polaroid borders and an optional grain overlay
+- Photographs set as plates: a ruled mount on heavier stock with an italic
+  caption beneath, and a light film grade (saturation, contrast, sepia)
 - A print stylesheet
 
 ### SEO
@@ -140,13 +141,17 @@ The palette lives in the `:root` block at the top of `style.css`:
 
 ```css
 :root {
-  --color-primary: #C15006;    /* burnt orange */
-  --color-secondary: #294F50;  /* pine green */
-  --color-background: #F5F2ED; /* warm cream */
-  --color-text: #17110F;       /* deep brown-black */
-  --color-text-muted: #4B6068; /* dusty blue-gray */
+  --paper: #EBDFC4;  /* page stock */
+  --ink:   #14110B;  /* body ink */
+  --red:   #B91D1D;  /* masthead, department tags, folios */
+  --gold:  #B89048;  /* second accent */
+  --rule:  #C7B991;  /* column and section rules */
 }
 ```
+
+The stylesheet also keeps the older `--color-*` names, remapped onto these
+tokens, so rules written against the previous palette still resolve. New rules
+should use the tokens above.
 
 If you change these, update the matching entries in the `editor-color-palette`
 block in `functions.php` so the block editor offers the same colors.
@@ -160,12 +165,12 @@ change still does not appear, purge your caching plugin or CDN.
 
 ## Previewing without WordPress
 
-- **`preview.html`** links the live `style.css`, so it shows the real theme as it
-  currently stands. Open it in a browser after editing `style.css` to check your
-  work.
-- **`preview-magazine.html`** is self-contained, with its CSS inlined. It is a
-  design mockup for the direction the theme is moving toward, not a rendering of
-  the theme.
+- **`preview.html`** links the live `style.css` and mirrors the markup the
+  templates emit, so it shows the real theme. Open it in a browser after
+  editing `style.css` to check your work.
+- **`preview-magazine.html`** is self-contained, with its CSS inlined. It is
+  the design reference the theme was drawn from, presented as a page-turning
+  book.
 
 ## Repository layout
 
@@ -173,7 +178,7 @@ change still does not appear, purge your caching plugin or CDN.
 wandering-gorilla/
 |- assets/
 |  |- images/
-|  |  `- yosemite-1953.jpg   (cover plate for the magazine preview)
+|  |  `- yosemite-1953.jpg   (cover plate; also the preview hero)
 |  `- js/
 |     `- main.js
 |- 404.php
@@ -201,15 +206,12 @@ wandering-gorilla/
 
 - `screenshot.png` does not exist. `screenshot.txt` is a placeholder describing
   what it should show.
-- The theme and `preview-magazine.html` are two different designs. Reconciling
-  them is the current work.
 - The contact form sends through `wp_mail()`, which is unreliable on many hosts.
   Use Contact Form 7 or an SMTP plugin in production.
 
 ## Credits
 
-Fonts are loaded from Google Fonts: Oswald and Crimson Text for the theme;
-Bodoni Moda, Libre Caslon Text, and Oswald for the magazine preview.
+Fonts are loaded from Google Fonts: Bodoni Moda, Libre Caslon Text and Oswald.
 
 ## License
 
@@ -218,6 +220,6 @@ GNU General Public License v2 or later. See
 
 ---
 
-**Version**: 2.0.0
+**Version**: 3.0.0
 **Author**: Wandering Gorilla
 **Text Domain**: wandering-gorilla

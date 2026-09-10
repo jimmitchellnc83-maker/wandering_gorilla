@@ -6,38 +6,98 @@ this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.0.0] - 2026-09-10
 
-Work toward a redesign of the theme around the magazine direction. The version
-number stays at 2.0.0 until that port actually lands, at which point it becomes
-3.0.0.
-
-### Added
-- `preview-magazine.html`, a standalone design mockup of a 1956 field journal
-  ("Vol III, No 7") presented as a twelve-spread page-turning book. Bodoni Moda
-  display, Libre Caslon Text body, and Oswald sans on a paper-and-ink palette,
-  with a halftone dot texture. Its CSS is inlined and it is not wired to
-  WordPress
-- `assets/images/yosemite-1953.jpg`, the cover plate for that mockup
-- A `.gitignore` entry for `.claude/`, which holds local git worktrees
+The theme is redesigned around the field-journal direction that previously
+existed only as a standalone mockup. The site now renders in the magazine's
+visual language. It does not become a page-turning book: a blog is a scrolling
+document, so the twelve-spread mechanic was deliberately left behind.
 
 ### Changed
-- `README.md` rewritten to describe the repository as it actually is. It
-  previously claimed WebP support, swipe gallery gestures, RTL stylesheets, and
-  a social menu location, none of which exist in the code, and it did not
-  mention the magazine preview at all
-- `CHANGELOG.md` 1.0.0 entry condensed. It listed aspirations ("WCAG 2.1
-  compliant", "fast loading", "cross-browser compatible") as shipped features
+- **Palette.** `style.css` is now built on paper and ink: warm stock
+  (`#EBDFC4`), near-black ink (`#14110B`), a single press red (`#B91D1D`) for
+  mastheads, department tags and folios, and gold (`#B89048`) as a sparing
+  second accent. The earth-tone and cactus palette is gone
+- The older `--color-*` custom properties are kept as aliases remapped onto the
+  new tokens. Several hundred existing rules were written against those names;
+  remapping moves the whole theme to the new palette at once instead of
+  breaking every rule that had not been rewritten yet
+- **Typography.** Bodoni Moda for display, Libre Caslon Text for body, Oswald
+  for navigation, running heads, labels and captions, replacing Oswald and
+  Crimson Text. The Google Fonts request was updated to match
+- **Borders.** `--border-radius` is now `0`. Print has no rounded corners
+- `header.php` renders a red masthead carrying the tagline, the site title and
+  an imprint line. The department bar was split out of the header element so
+  the masthead scrolls away like the cover of an issue while the navigation
+  follows the reader down the page
+- `footer.php` reads as a colophon, including the typographic credit
+- The hero is a full-bleed photograph with a scrim over it rather than a
+  fixed-height framed panel with the headline in a floating translucent card.
+  `index.php` renders it as an `<img>`, so the stylesheet lays that image into
+  the section rather than expecting a background
+- Post cards use the plate-and-caption pattern: a ruled mount on heavier stock,
+  a red category tag, a Bodoni title, a Caslon excerpt, and a rule above the
+  meta line. Card shadows, rounded corners and panel backgrounds are gone
+- Article bodies set justified with hyphenation and a red Bodoni drop cap
+  opening a single post. Pull quotes sit between heavy rules
+- Buttons are square with a hard offset shadow, in place of rounded gradient
+  buttons
+- Section breaks are a heavy rule over a light one, replacing a dashed rule
+  with a centred glyph
+- The block editor palette in `functions.php` now offers the paper-and-ink
+  colours, keeping it in step with `:root` as before
+- `preview.html` mirrors the markup the templates now emit, so it still shows
+  the real theme
+- The `style.css` theme header description describes the new design
+- Theme version to 3.0.0, in `style.css` and `WANDERING_GORILLA_VERSION`
+
+### Added
+- `preview-magazine.html`, the design reference this release was drawn from: a
+  1956 field journal ("Vol III, No 7") presented as a twelve-spread
+  page-turning book, with its CSS inlined and not wired to WordPress
+- `assets/images/yosemite-1953.jpg`, its cover plate, also used as the hero
+  photograph in `preview.html`
+- Ten inline SVG line engravings in that mockup, replacing flat colour blocks:
+  four project plates in the workshop department and five in the photo essay,
+  drawn to the captions they already carried. The plate captioned as the
+  original 1953 photograph now shows that photograph
+- Three letters and an editor's reply on the subscriptions spread, which ran
+  under the heading "Letters to the Editor" while containing none
+- Horizontal swipe navigation and `prefers-reduced-motion` support in the
+  mockup's pager
+- A `.gitignore` entry for `.claude/`, which holds local git worktrees
+
+### Fixed
+- The mockup's spread pager discarded input. `show()` held a lock for the
+  450ms duration of a flip and returned early for anything arriving inside it,
+  so at a human clicking pace roughly three of every four clicks did nothing,
+  and held arrow keys advanced one spread instead of many. Flips are now
+  interruptible and the spread index is committed up front
+- The mockup lost half its content below 900px. Each spread stacked its two
+  pages into one column inside a fixed-height `overflow: hidden` box, so the
+  right-hand page of every spread was clipped and unreachable. The spread is
+  now the scroll container, and the pager steps through twelve sections
 
 ### Removed
-- `preview-vintage.html`, `preview-modern.html`, and `preview-dark-vintage.html`.
-  Three abandoned design directions, superseded by the magazine work. They
-  remain in git history
+- The gradient underscore stuck beneath every `h1` and `h2`. A heading is
+  separated by a rule or by space here, and the bar ignored the heading's own
+  alignment
+- `preview-vintage.html`, `preview-modern.html` and `preview-dark-vintage.html`,
+  three abandoned design directions superseded by this release. They remain in
+  git history
 - The Webflow export: `webflow-components/`, `webflow-export.html`,
-  `webflow-styles.css`, and `WEBFLOW-SETUP-GUIDE.md`. Nothing in the theme
-  referenced any of it, and it encoded the 1.0.0 design that 2.0.0 already
-  replaced. The README had been citing it as the place social sharing and email
-  signup markup "ships", which made it read like a theme feature
+  `webflow-styles.css` and `WEBFLOW-SETUP-GUIDE.md`. Nothing in the theme
+  referenced any of it and it encoded the 1.0.0 design that 2.0.0 replaced.
+  The README had cited it as where social sharing and email signup markup
+  ships, which made a dead export read like a theme feature
+
+### Documentation
+- `README.md` rewritten against the code. It had claimed WebP support, swipe
+  gallery gestures, RTL stylesheets and a social menu location, none of which
+  exist, and it described only the earth-tone design
+- The 1.0.0 changelog entry condensed; it listed aspirations ("WCAG 2.1
+  compliant", "cross-browser compatible", "fast loading") as shipped features
+- `screenshot.txt` describes the new design
 
 ## [2.0.0] - 2026-09-06
 
@@ -118,6 +178,7 @@ vintage photo filter.
 
 ## Version history
 
+- **3.0.0** - Field-journal redesign: paper and ink, Bodoni and Caslon (September 10, 2026)
 - **2.0.0** - Modern earth-tone redesign and asset cache-busting fix (September 6, 2026)
 - **1.0.0** - Initial release (November 8, 2025)
 

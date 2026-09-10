@@ -1,21 +1,27 @@
 SCREENSHOT PLACEHOLDER
 
-For the theme to display properly in WordPress, you should add a screenshot.png file
-in the root directory of the theme.
+For the theme to display properly in WordPress, add a screenshot.png file in
+the root directory of the theme.
 
 Recommended dimensions: 1200x900 pixels
 
-The screenshot should showcase:
-- Modern adventure travel layout with natural earth tones
-- Film photo treatment examples with white polaroid borders
-- Typography pairing (Oswald headlines, Crimson Text body)
-- Sample route report layout
+The screenshot should show:
+- The red masthead over the sticky department bar
+- A hero photograph set as a full-bleed plate with the headline over it
+- Post cards in the plate-and-caption pattern: ruled mount, red category tag,
+  Bodoni title, Caslon excerpt
+- A heavy-over-light section rule
 
-Color scheme to feature:
-- Burnt orange (#C15006)
-- Pine green (#294F50)
-- Warm cream (#F5F2ED)
-- Deep brown-black (#17110F)
-- Golden mustard (#DBA861)
+Palette to feature:
+- Paper       #EBDFC4
+- Ink         #14110B
+- Press red   #B91D1D
+- Gold        #B89048
+- Rule        #C7B991
 
-This file serves as a placeholder until a proper screenshot is created.
+Typography to feature:
+- Bodoni Moda display
+- Libre Caslon Text body
+- Oswald signage
+
+This file is a placeholder until a proper screenshot is created.
