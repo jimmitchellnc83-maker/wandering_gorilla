@@ -633,6 +633,7 @@
       gap: 22px;
       padding: 22px 0;
       border-top: 1px solid var(--rule);
+      align-items: start;
     }
     .proj:first-child { border-top: 0; padding-top: 0; }
     .proj .plate { background: var(--paper-deep); border: 1px solid var(--ink); padding: 6px; }
@@ -641,17 +642,41 @@
       position: relative;
       overflow: hidden;
     }
-    .proj .plate-img.mp1 { background: linear-gradient(160deg, #3F5C3A, #28401F); }
-    .proj .plate-img.mp2 { background: linear-gradient(160deg, #6E97B5, #2B4F6B); }
-    .proj .plate-img.mp3 { background: linear-gradient(160deg, #B89048, #5C3B22); }
-    .proj .plate-img.mp4 { background: linear-gradient(160deg, #8D8275, #5C5448); }
+    .proj .plate-img.mp1 {
+      background-color: #DCCEAA;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'> <rect width='120' height='160' fill='%23DCCEAA'/> <g stroke='%23C7B991' stroke-width='.4' opacity='.9'> <path d='M0 20H120M0 50H120M0 80H120M0 110H120M0 140H120M20 0V160M50 0V160M80 0V160M110 0V160'/> </g> <g stroke='%235C3B22' fill='none' stroke-width='.7' opacity='.8'> <path d='M6 40C24 25 52 27 72 40C92 53 100 74 90 94C79 118 48 128 27 117C8 107 1 74 6 40Z'/> <path d='M17 49C32 38 53 39 68 49C83 60 89 76 81 91C72 108 49 116 33 107C19 99 13 74 17 49Z'/> <path d='M28 59C40 51 54 52 64 60C74 68 78 79 72 89C65 101 49 106 38 100C28 94 25 77 28 59Z'/> <path d='M39 70C46 64 56 65 62 71C68 77 69 85 65 91C60 98 50 100 44 95C38 91 37 80 39 70Z'/> <path d='M48 80C52 77 58 78 61 82C64 86 63 90 59 92C55 94 50 93 48 90Z'/> </g> <g stroke='%235C3B22' fill='none' stroke-width='.5' opacity='.55'> <path d='M2 128C22 122 38 130 56 138C74 146 92 144 118 136'/> <path d='M2 146C24 141 40 148 60 154'/> </g> <path d='M10 150C22 128 30 120 44 112C58 104 62 92 58 82C54 72 60 62 74 58C88 54 96 44 98 28' fill='none' stroke='%23B91D1D' stroke-width='1.7' stroke-dasharray='5 3.4' stroke-linecap='round'/> <circle cx='98' cy='28' r='3.4' fill='%23B91D1D'/> <circle cx='98' cy='28' r='6.2' fill='none' stroke='%23B91D1D' stroke-width='.7' opacity='.6'/> <circle cx='10' cy='150' r='2.4' fill='none' stroke='%23B91D1D' stroke-width='1.3'/> <g transform='translate(99,132)'> <circle r='11' fill='%23DCCEAA' stroke='%2314110B' stroke-width='.7'/> <path d='M0-9L2.6 0L0 9L-2.6 0Z' fill='%2314110B'/> <path d='M-9 0L0 2.2L9 0L0-2.2Z' fill='none' stroke='%2314110B' stroke-width='.6'/> <circle r='1.1' fill='%23B91D1D'/> </g> <rect x='.75' y='.75' width='118.5' height='158.5' fill='none' stroke='%2314110B' stroke-width='1.5'/> </svg>");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .proj .plate-img.mp2 {
+      background-color: #DCCEAA;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'> <rect width='120' height='160' fill='%23DCCEAA'/> <rect x='5' y='5' width='110' height='150' fill='%23EBDFC4' opacity='.55'/> <g transform='translate(26,25) rotate(-2.5) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.3' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(59,25) rotate(1.8) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.4' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(92,25) rotate(-1.2) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.5' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(26,54) rotate(2.6) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.6000000000000001' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(59,54) rotate(-3.0) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%23B91D1D' stroke-width='1.2'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.3' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(92,54) rotate(1.1) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.4' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(26,83) rotate(2.0) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.5' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(59,83) rotate(-1.7) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.6000000000000001' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(92,83) rotate(0.8) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.3' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(26,112) rotate(-2.2) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.4' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(59,112) rotate(1.4) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.5' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(92,112) rotate(-0.9) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%23B91D1D' stroke-width='1.2'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.6000000000000001' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(26,141) rotate(2.3) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.3' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(59,141) rotate(-1.5) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.4' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g transform='translate(92,141) rotate(1.9) translate(-15,-11)'><rect width='30' height='22' fill='%23EBDFC4' stroke='%2314110B' stroke-width='0.8'/><rect x='4.5' y='4' width='21' height='14' fill='%235C3B22' opacity='0.5' stroke='%2314110B' stroke-width='.45'/><path d='M4.5 11.700000000000001h21' stroke='%23EBDFC4' stroke-width='.5' opacity='.5'/><path d='M2 2.2h4M24 19.8h4' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g> <rect x='.75' y='.75' width='118.5' height='158.5' fill='none' stroke='%2314110B' stroke-width='1.5'/> </svg>");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .proj .plate-img.mp3 {
+      background-color: #DCCEAA;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'> <rect width='120' height='160' fill='%23DCCEAA'/> <g><rect x='10' y='61' width='13' height='87' fill='%235C3B22' opacity='0.34' stroke='%2314110B' stroke-width='.7'/><path d='M11.5 70h10M11.5 75h10' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M11.5 135h10' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='12.5' y='87' width='8' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='24' y='61' width='10' height='87' fill='%235C3B22' opacity='0.52' stroke='%2314110B' stroke-width='.7'/><path d='M25.5 70h7M25.5 75h7' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M25.5 135h7' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='26.5' y='87' width='5' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='35' y='52' width='15' height='96' fill='%235C3B22' opacity='0.24' stroke='%2314110B' stroke-width='.7'/><path d='M36.5 61h12M36.5 66h12' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M36.5 135h12' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='37.5' y='78' width='10' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='51' y='58' width='9' height='90' fill='%235C3B22' opacity='0.6' stroke='%2314110B' stroke-width='.7'/><path d='M52.5 67h6M52.5 72h6' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M52.5 135h6' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='53.5' y='84' width='4' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='61' y='67' width='12' height='81' fill='%235C3B22' opacity='0.4' stroke='%2314110B' stroke-width='.7'/><path d='M62.5 76h9M62.5 81h9' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M62.5 135h9' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='63.5' y='93' width='7' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='74' y='64' width='14' height='84' fill='%235C3B22' opacity='0.3' stroke='%2314110B' stroke-width='.7'/><path d='M75.5 73h11M75.5 78h11' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M75.5 135h11' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='76.5' y='90' width='9' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='89' y='67' width='11' height='81' fill='%235C3B22' opacity='0.55' stroke='%2314110B' stroke-width='.7'/><path d='M90.5 76h8M90.5 81h8' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M90.5 135h8' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='91.5' y='93' width='6' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g><g><rect x='101' y='61' width='9' height='87' fill='%235C3B22' opacity='0.44' stroke='%2314110B' stroke-width='.7'/><path d='M102.5 70h6M102.5 75h6' stroke='%2314110B' stroke-width='.45' opacity='.65'/><path d='M102.5 135h6' stroke='%2314110B' stroke-width='.45' opacity='.65'/><rect x='103.5' y='87' width='4' height='18' fill='none' stroke='%2314110B' stroke-width='.4' opacity='.5'/></g> <path d='M0 148h120' stroke='%2314110B' stroke-width='1.6'/> <g transform='translate(56,10) rotate(4) translate(-56,-10)'> <rect x='4' y='8' width='70' height='84' fill='%23EBDFC4' stroke='%2314110B' stroke-width='1'/> <path d='M4 8h70' stroke='%2314110B' stroke-width='2.4'/> <g transform='translate(-4,10)'><path d='M8 30.0h52' stroke='%2314110B' stroke-width='.55' opacity='.55'/><path d='M8 38.5h44' stroke='%2314110B' stroke-width='.55' opacity='.55'/><path d='M8 47.0h50' stroke='%2314110B' stroke-width='.55' opacity='.55'/><path d='M8 55.5h38' stroke='%2314110B' stroke-width='.55' opacity='.55'/><path d='M8 64.0h48' stroke='%2314110B' stroke-width='.55' opacity='.55'/><path d='M8 72.5h30' stroke='%2314110B' stroke-width='.55' opacity='.55'/></g> <path d='M12 78h34' stroke='%23B91D1D' stroke-width='1.1' opacity='.85'/> <path d='M62 8v34l-5-5-5 5V8Z' fill='%23B91D1D'/> </g> <rect x='.75' y='.75' width='118.5' height='158.5' fill='none' stroke='%2314110B' stroke-width='1.5'/> </svg>");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .proj .plate-img.mp4 {
+      background-color: #DCCEAA;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'> <rect width='120' height='160' fill='%23DCCEAA'/> <path d='M14 150h92' stroke='%2314110B' stroke-width='1.8'/> <path d='M26 150V44M94 150V44' stroke='%2314110B' stroke-width='2.6'/> <path d='M20 44h80v10H20Z' fill='%235C3B22' opacity='.5' stroke='%2314110B' stroke-width='1'/> <path d='M34 54h52v30H34Z' fill='%23EBDFC4' stroke='%2314110B' stroke-width='1.1'/> <path d='M40 62h40M40 68h40M40 74h26' stroke='%2314110B' stroke-width='.7' opacity='.7'/> <path d='M60 84v12' stroke='%2314110B' stroke-width='2.2'/> <path d='M18 96h84v8H18Z' fill='%23B89048' opacity='.45' stroke='%2314110B' stroke-width='1'/> <rect x='20' y='104' width='11' height='8' fill='%235C3B22' opacity='0.35' stroke='%2314110B' stroke-width='.5'/><rect x='34' y='104' width='11' height='8' fill='%235C3B22' opacity='0.47' stroke='%2314110B' stroke-width='.5'/><rect x='48' y='104' width='11' height='8' fill='%235C3B22' opacity='0.59' stroke='%2314110B' stroke-width='.5'/><rect x='62' y='104' width='11' height='8' fill='%235C3B22' opacity='0.35' stroke='%2314110B' stroke-width='.5'/><rect x='76' y='104' width='11' height='8' fill='%235C3B22' opacity='0.47' stroke='%2314110B' stroke-width='.5'/><rect x='20' y='115' width='11' height='8' fill='%235C3B22' opacity='0.59' stroke='%2314110B' stroke-width='.5'/><rect x='34' y='115' width='11' height='8' fill='%235C3B22' opacity='0.35' stroke='%2314110B' stroke-width='.5'/><rect x='48' y='115' width='11' height='8' fill='%235C3B22' opacity='0.47' stroke='%2314110B' stroke-width='.5'/><rect x='62' y='115' width='11' height='8' fill='%235C3B22' opacity='0.59' stroke='%2314110B' stroke-width='.5'/><rect x='76' y='115' width='11' height='8' fill='%235C3B22' opacity='0.35' stroke='%2314110B' stroke-width='.5'/> <g transform='translate(60,30)'> <circle r='19' fill='none' stroke='%2314110B' stroke-width='2.2'/> <circle r='4.6' fill='%23DCCEAA' stroke='%2314110B' stroke-width='1.4'/> <g stroke='%2314110B' stroke-width='1'> <path d='M0-19V-5M0 5V19M-19 0H-5M5 0H19'/> <path d='M-13.4-13.4L-3.5-3.5M13.4 13.4L3.5 3.5M13.4-13.4L3.5-3.5M-13.4 13.4L-3.5 3.5'/> </g> <circle r='1.6' fill='%23B91D1D'/> </g> <path d='M99 30h9' stroke='%2314110B' stroke-width='1.6'/> <circle cx='110' cy='30' r='3' fill='%23B91D1D'/> <rect x='.75' y='.75' width='118.5' height='158.5' fill='none' stroke='%2314110B' stroke-width='1.5'/> </svg>");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
     .proj .plate-img::after {
       content: "";
       position: absolute; inset: 0;
       background-image: radial-gradient(rgba(20,17,11,.28) .6px, transparent .7px);
       background-size: 2.5px 2.5px;
       mix-blend-mode: multiply;
-      opacity: .55;
+      opacity: .28;
     }
     .proj .plate-cap {
       font-family: var(--font-body);
@@ -1972,14 +1997,23 @@
   const navLinks  = document.querySelectorAll('.nav-link');
   const navToggle = document.querySelector('.nav-toggle');
   const topNav    = document.querySelector('.top-nav');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const FLIP_MS = 450;
 
   let current = 0;
-  let animating = false;
+  let timer   = null;   // handle for the in-flight flip, or null when settled
 
   totalEl.textContent = total;
 
+  function closeDrawer() {
+    topNav.classList.remove('open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  }
+
   // Active state: highlight the nav-link whose data-spread is the largest
-  // value not exceeding the current spread (so Workshop pt 2 still highlights "Workshop").
+  // value not exceeding the current spread (so Workshop pt 2 still highlights
+  // "Workshop").
   function updateNavActive() {
     let activeIdx = 0;
     navLinks.forEach((link, i) => {
@@ -1989,26 +2023,56 @@
     navLinks.forEach((link, i) => link.classList.toggle('active', i === activeIdx));
   }
 
+  // Snap every spread to the settled state for `current`, dropping any inline
+  // styles left behind by an animation. Safe to call at any point in a flip.
+  function settle() {
+    spreads.forEach((s, i) => {
+      s.style.transition = '';
+      s.style.transform  = '';
+      s.style.opacity    = '';
+      s.classList.toggle('active', i === current);
+    });
+  }
+
   function show(i, dir) {
-    if (animating) return;
+    closeDrawer();
+
     const target = Math.max(0, Math.min(total - 1, i));
-    if (target === current) {
-      // still close the drawer if open
-      topNav.classList.remove('open');
-      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-      return;
-    }
-    animating = true;
+    if (target === current) return;
     if (typeof dir !== 'number') dir = target > current ? 1 : -1;
+
+    // A flip is still running. Finish it instantly rather than dropping this
+    // input on the floor: the previous flip's destination becomes the origin
+    // of this one. This is what makes held arrow keys and fast clicking work.
+    if (timer !== null) {
+      clearTimeout(timer);
+      timer = null;
+      settle();
+    }
 
     const out = spreads[current];
     const inn = spreads[target];
+
+    // Commit the new index up front so `current`, the indicator, and the nav
+    // never disagree with each other partway through a flip.
+    current = target;
+    indicator.textContent = current + 1;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    updateNavActive();
+    inn.querySelectorAll('.page, .frontispiece, .map-spread, .back-cover')
+       .forEach(p => { p.scrollTop = 0; });
+
+    if (reduceMotion.matches) {
+      settle();
+      return;
+    }
 
     inn.style.transition = 'none';
     inn.style.opacity = '0';
     inn.style.transform = dir > 0 ? 'translateX(8%)' : 'translateX(-8%)';
     inn.classList.add('active');
-    void inn.offsetWidth; // force reflow
+    void inn.offsetWidth; // force reflow so the transition below actually runs
     inn.style.transition = 'opacity .35s ease, transform .45s ease';
     inn.style.opacity = '1';
     inn.style.transform = 'translateX(0)';
@@ -2017,25 +2081,7 @@
     out.style.opacity = '0';
     out.style.transform = dir > 0 ? 'translateX(-8%)' : 'translateX(8%)';
 
-    setTimeout(() => {
-      out.classList.remove('active');
-      out.style.transform = '';
-      out.style.transition = '';
-      out.style.opacity = '';
-      inn.style.transform = '';
-      inn.style.transition = '';
-      current = target;
-      indicator.textContent = current + 1;
-      prevBtn.disabled = current === 0;
-      nextBtn.disabled = current === total - 1;
-      // scroll page columns back to top
-      inn.querySelectorAll('.page, .frontispiece, .map-spread, .back-cover').forEach(p => p.scrollTop = 0);
-      updateNavActive();
-      // close the mobile drawer after navigation
-      topNav.classList.remove('open');
-      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-      animating = false;
-    }, 450);
+    timer = setTimeout(() => { timer = null; settle(); }, FLIP_MS);
   }
 
   // Pager buttons
@@ -2048,14 +2094,14 @@
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = parseInt(link.dataset.spread, 10) - 1;
-      show(target);
+      show(parseInt(link.dataset.spread, 10) - 1);
     });
   });
 
   // Hamburger toggle
   if (navToggle) {
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const open = topNav.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
@@ -2065,13 +2111,12 @@
   document.addEventListener('click', (e) => {
     if (!topNav.classList.contains('open')) return;
     if (topNav.contains(e.target)) return;
-    topNav.classList.remove('open');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    closeDrawer();
   });
 
   // Keyboard
   document.addEventListener('keydown', (e) => {
-    // Don't capture keys while focused inside an input
+    // Don't capture keys while focused inside a form control
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
       show(current - 1, -1);
@@ -2083,13 +2128,31 @@
     } else if (e.key === 'End') {
       show(total - 1, 1);
     } else if (e.key === 'Escape') {
-      topNav.classList.remove('open');
-      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      closeDrawer();
     }
   });
 
+  // Touch: horizontal swipe flips the spread.
+  let touchX = null, touchY = null;
+  const swipeTarget = document.querySelector('.magazine') || document.body;
+  swipeTarget.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) { touchX = null; return; }
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  swipeTarget.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    touchX = null;
+    // Ignore mostly-vertical drags so scrolling a column still works.
+    if (Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+    show(current + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+  }, { passive: true });
+
   // Init
   prevBtn.disabled = true;
+  nextBtn.disabled = total <= 1;
   updateNavActive();
 })();
 </script>
