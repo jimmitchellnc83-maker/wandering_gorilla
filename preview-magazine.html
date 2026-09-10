@@ -1157,13 +1157,54 @@
       .nav-link { display: block; padding: 12px 0; border-bottom: 1px solid #3a3328; font-size: 0.72rem; letter-spacing: 0.24em; }
       .nav-link:last-child { border-bottom: 0; }
 
-      /* Single-page magazine */
-      .spread { grid-template-columns: 1fr; max-width: none; box-shadow: none; }
+      /* Single-page magazine.
+         The two pages of a spread stack into one column here, which together
+         are taller than the spread. The spread itself therefore has to be the
+         scroll container: while it was overflow:hidden at a fixed page height,
+         the right-hand page of every spread was clipped and unreachable. */
+      .spread {
+        display: block;          /* grid stretched pages to the row height,
+                                    clipping their content; block boxes size
+                                    to what is actually in them */
+        max-width: none;
+        box-shadow: none;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+      }
       .spread:not(.spread--cover):not(.spread--bleed)::before { display: none; }
+
+      /* Pages size to their content but still hold a screen each, so the
+         page-by-page rhythm of the print original survives the reflow. */
+      .page,
+      .frontispiece,
+      .map-spread,
+      .back-cover {
+        height: auto;
+        min-height: var(--page-h);
+        overflow-y: visible;
+      }
       .page { padding: 22px 24px 56px; }
       .page--left, .page--right { padding-left: 24px; padding-right: 24px; }
+
+      /* .page-content is flex:1 (basis 0) on desktop, where the page is a
+         fixed-height scroller. Here the page sizes to its content, so a zero
+         basis would leave the box at min-height while the text overflowed it
+         and landed on top of the next page. Grow, but never below content. */
+      .page-content { flex: 1 0 auto; }
       .page--left .page-num,
       .page--right .page-num { left: 24px; right: auto; bottom: 16px; }
+
+      /* The centre spine is gone, so mark the page turn with a rule instead. */
+      .page--right { border-top: 2px solid var(--ink); }
+
+      /* Keep the last of a spread's content clear of the fixed pager. The
+         cover is exempt: it sets padding:0 so the photograph bleeds, and
+         padding here would show a band of paper under it. */
+      .spread:not(.spread--cover) > .page:last-child,
+      .frontispiece,
+      .map-spread,
+      .back-cover { padding-bottom: calc(var(--pad-y) + 68px); }
 
       /* Cover overlay tightens */
       .cover-lines { display: none; }
@@ -1226,9 +1267,13 @@
       .masthead .left-meta, .masthead .right-meta { text-align: center; }
       .masthead .logo { font-size: 1.8rem; }
 
-      .cover-overlay { padding: 18px 18px 22px; }
-      .cover-headline h1 { font-size: clamp(2rem, 9vw, 3rem); line-height: 1; }
-      .cover-headline .deck { font-size: 0.95rem; max-width: 28ch; }
+      .cover-overlay { padding: 18px 18px 74px; }  /* clears the pager without breaking the photo bleed */
+      /* 18ch is a sensible measure on a wide cover; on a phone it forced
+         the headline into five orphaned lines. */
+      .cover-headline { max-width: none; }
+      .cover-headline h1 { font-size: clamp(2rem, 8.4vw, 3rem); line-height: 1.02; }
+      .cover-headline .deck { font-size: 0.95rem; max-width: 34ch; }
+      .cover-headline .feature-tag { letter-spacing: 0.22em; font-size: 0.64rem; margin-bottom: 14px; }
       .cover-bottom .barcode { font-size: 0.58rem; }
 
       .toc-list li { grid-template-columns: 50px 1fr 30px; gap: 10px; }
@@ -2060,6 +2105,8 @@
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === total - 1;
     updateNavActive();
+    // On desktop each column scrolls; on mobile the spread itself does.
+    inn.scrollTop = 0;
     inn.querySelectorAll('.page, .frontispiece, .map-spread, .back-cover')
        .forEach(p => { p.scrollTop = 0; });
 
